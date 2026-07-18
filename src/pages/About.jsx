@@ -17,7 +17,7 @@ function About() {
   }, []);
 
   return (
-    <div className="about-page-wrapper">
+    <div className="about-page-wrapper page-animate">
       {/* 1. HERO SECTION */}
       <section className="about-hero">
         <div className="container about-hero-container">

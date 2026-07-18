@@ -4,9 +4,9 @@
 
 .glass-toast-wrapper {
   position: fixed;
-  bottom: 30px;
+  top: 100px;
   left: 50%;
-  transform: translate(-50%, 50px);
+  transform: translate(-50%, -20px);
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
@@ -26,12 +26,12 @@
   padding: 12px 20px;
   border-radius: 50px;
   
-  /* Glassmorphism */
-  background: rgba(37, 99, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(37, 99, 255, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  /* Glassmorphism Blue Blur */
+  background: rgba(37, 99, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 40px rgba(37, 99, 255, 0.4);
 }
 
 .toast-msg {
@@ -61,19 +61,20 @@
 
 /* Light Mode Overrides */
 :root[data-theme='light'] .glass-toast {
-  background: rgba(37, 99, 255, 0.1);
-  border-color: rgba(37, 99, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  background: rgba(37, 99, 255, 0.9);
+  border: 1px solid rgba(37, 99, 255, 0.3);
+  box-shadow: 0 10px 40px rgba(37, 99, 255, 0.3);
 }
 
 :root[data-theme='light'] .toast-msg {
-  color: var(--primary-blue);
-  font-weight: 600;
+  color: #fff;
+  font-weight: 500;
 }
 
 :root[data-theme='light'] .toast-close {
-  color: var(--primary-blue);
+  color: rgba(255, 255, 255, 0.8);
 }
 :root[data-theme='light'] .toast-close:hover {
-  background: rgba(37, 99, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }

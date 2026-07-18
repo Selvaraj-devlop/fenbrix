@@ -1,162 +1,238 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useModal } from '../context/ModalContext';
-import { X, Send, Calendar, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { X, ArrowLeft, ArrowRight, MessageSquare, Check, ShieldCheck, Clock, Headset, Code2, Smartphone, PenTool, Megaphone, MoreHorizontal, Mail, Phone, User, ShoppingBag } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { FaArrowRight } from "react-icons/fa6";
-
-const SERVICES = [
-  { id: 'web', label: 'Website Development', icon: '🌐' },
-  { id: 'mobile', label: 'Mobile App', icon: '📱' },
-  { id: 'uiux', label: 'UI/UX Design', icon: '🎨' },
-  { id: 'ecommerce', label: 'E-commerce', icon: '🛍️' },
-  { id: 'marketing', label: 'Digital Marketing', icon: '📈' },
-  { id: 'software', label: 'Custom Software', icon: '💻' },
-  { id: 'branding', label: 'Branding', icon: '✨' },
-  { id: 'other', label: 'Other', icon: '🤔' }
-];
 
 function LeadModal() {
   const { isModalOpen, closeModal } = useModal();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   
   const [formData, setFormData] = useState({
+    service: 'web',
+    project: '',
     name: '',
     email: '',
     phone: '',
-    company: '',
-    service: '',
-    description: '',
-    timeline: '',
-    budget: ''
+    contactMethod: 'email'
   });
+
+  const location = useLocation();
+
+  // Close modal when user navigates (e.g. clicks browser back button)
+  useEffect(() => {
+    if (isModalOpen) {
+      closeModal();
+      setCurrentStep(1);
+    }
+  }, [location.pathname]);
+
+  // Lock background scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add('body-lock');
+      document.documentElement.classList.add('body-lock');
+    } else {
+      document.body.classList.remove('body-lock');
+      document.documentElement.classList.remove('body-lock');
+    }
+    return () => {
+      document.body.classList.remove('body-lock');
+      document.documentElement.classList.remove('body-lock');
+    };
+  }, [isModalOpen]);
 
   if (!isModalOpen) return null;
 
   const handleOverlayClick = (e) => {
     if (e.target.className === 'modal-overlay') {
       closeModal();
-      // Reset after animation
       setTimeout(() => {
         setCurrentStep(1);
-        setIsSuccess(false);
       }, 300);
     }
   };
 
+  const isNextDisabled = () => {
+    if (currentStep === 3 && !formData.project.trim()) return true;
+    if (currentStep === 4 && (!formData.name.trim() || !formData.email.trim())) return true;
+    if (isSubmitting) return true;
+    return false;
+  };
+
   const nextStep = () => {
-    if (currentStep === 1 && !formData.service) return; // Optional: enforce service selection
-    setCurrentStep(prev => Math.min(prev + 1, 4));
+    if (isNextDisabled()) return;
+
+    if (currentStep === 5) {
+      submitForm();
+    } else {
+      setCurrentStep(prev => Math.min(prev + 1, 6));
+    }
   };
 
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1));
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email) return; 
-    
+  const submitForm = () => {
     setIsSubmitting(true);
     // Mock API Call
     setTimeout(() => {
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1200);
+      setCurrentStep(6);
+    }, 1000);
   };
 
-  const handleScheduleCall = () => {
-    window.open('https://calendly.com/', '_blank');
+  const handleClose = () => {
+    closeModal();
+    setTimeout(() => {
+      setCurrentStep(1);
+    }, 300);
+  };
+
+  const renderStepDots = () => {
+    return (
+      <div className="wizard-progress">
+        <div className="wizard-dots">
+          {[1, 2, 3, 4, 5, 6].map(step => (
+            <React.Fragment key={step}>
+              <div className={`wizard-dot ${currentStep >= step ? 'active' : ''} ${currentStep === step ? 'current' : ''}`}>
+                 {currentStep > step ? <Check size={10} strokeWidth={4} /> : ''}
+                 {currentStep === step ? <div className="dot-inner"></div> : ''}
+              </div>
+              {step < 6 && <div className={`wizard-line ${currentStep > step ? 'active' : ''}`}></div>}
+            </React.Fragment>
+          ))}
+        </div>
+        <p className="wizard-step-text">Step {currentStep} of 6</p>
+      </div>
+    );
   };
 
   const renderStepContent = () => {
     switch(currentStep) {
       case 1:
         return (
-          <div className="step-content">
-            <h3>What do you need help with?</h3>
-            <div className="services-grid">
-              {SERVICES.map(srv => (
+          <div className="wizard-step-content center-align">
+            <div className="wizard-chat-icon">
+              <MessageSquare size={36} color="#fff" fill="rgba(255,255,255,0.2)" />
+              <div className="chat-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <h2>Let's Start a Conversation</h2>
+            <p>Tell us what you want to do and<br/>we'll help you get there.</p>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="wizard-step-content">
+            <h3>What can we help you with?</h3>
+            <p className="wizard-subtitle">Choose the service you're interested in.</p>
+            <div className="wizard-options-grid">
+              {[
+                { id: 'web', icon: <Code2 size={20} />, label: 'Web Development' },
+                { id: 'mobile', icon: <Smartphone size={20} />, label: 'Mobile App' },
+                { id: 'uiux', icon: <PenTool size={20} />, label: 'UI/UX Design' },
+                { id: 'marketing', icon: <Megaphone size={20} />, label: 'Marketing' },
+                { id: 'ecommerce', icon: <ShoppingBag size={20} />, label: 'E-Commerce' },
+                { id: 'other', icon: <MoreHorizontal size={20} />, label: 'Other' }
+              ].map(opt => (
                 <div 
-                  key={srv.id} 
-                  className={`service-card ${formData.service === srv.id ? 'selected' : ''}`}
-                  onClick={() => setFormData({...formData, service: srv.id})}
+                  key={opt.id} 
+                  className={`wizard-option grid-style ${formData.service === opt.id ? 'selected' : ''}`}
+                  onClick={() => setFormData({...formData, service: opt.id})}
                 >
-                  <span className="service-icon">{srv.icon}</span>
-                  <span className="service-label">{srv.label}</span>
+                  <div className="opt-left">
+                    <span className="opt-icon">{opt.icon}</span>
+                    <span className="opt-label">{opt.label}</span>
+                  </div>
+                  <div className={`wizard-radio ${formData.service === opt.id ? 'checked' : ''}`}>
+                    {formData.service === opt.id && <Check size={12} strokeWidth={4} />}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         );
-      case 2:
-        return (
-          <div className="step-content">
-            <h3>Tell us about your project</h3>
-            <div className="form-group">
-              <label>💬 Project Description (Optional)</label>
-              <textarea 
-                rows="5" 
-                placeholder="What are your main goals? Who is your target audience? Any specific features you need?" 
-                value={formData.description} 
-                onChange={e => setFormData({...formData, description: e.target.value})}
-              ></textarea>
-            </div>
-          </div>
-        );
       case 3:
         return (
-          <div className="step-content">
-            <h3>Scope & Timing</h3>
-            <div className="form-row">
-              <div className="form-group">
-                <label>📅 Expected Timeline</label>
-                <select value={formData.timeline} onChange={e => setFormData({...formData, timeline: e.target.value})}>
-                  <option value="">Select timeline...</option>
-                  <option value="asap">ASAP</option>
-                  <option value="1month">Within 1 Month</option>
-                  <option value="3months">1–3 Months</option>
-                  <option value="exploring">Just Exploring</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>💰 Budget</label>
-                <select value={formData.budget} onChange={e => setFormData({...formData, budget: e.target.value})}>
-                  <option value="">Select budget...</option>
-                  <option value="under25k">Under ₹25k</option>
-                  <option value="25to50k">₹25k–₹50k</option>
-                  <option value="50to1L">₹50k–₹1L</option>
-                  <option value="above1L">Above ₹1L</option>
-                  <option value="discuss">Let's Discuss</option>
-                </select>
-              </div>
+          <div className="wizard-step-content">
+            <h3>Tell us about your project</h3>
+            <p className="wizard-subtitle">This helps us understand your needs better.</p>
+            <div className="wizard-textarea-wrapper">
+              <textarea 
+                placeholder="Briefly describe your project or idea..." 
+                value={formData.project} 
+                onChange={e => setFormData({...formData, project: e.target.value})}
+                maxLength={500}
+                rows={6}
+              ></textarea>
+              <div className="char-count">{formData.project.length}/500</div>
             </div>
           </div>
         );
       case 4:
         return (
-          <div className="step-content">
-            <h3>Your Contact Details</h3>
-            <div className="form-row">
-              <div className="form-group">
-                <label>👤 Full Name *</label>
-                <input type="text" required placeholder="John Doe" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-              </div>
-              <div className="form-group">
-                <label>📧 Email Address *</label>
-                <input type="email" required placeholder="john@example.com" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+          <div className="wizard-step-content">
+            <h3>Share your details</h3>
+            <p className="wizard-subtitle">We'll use this to get in touch with you.</p>
+            <div className="wizard-input-group">
+               <div className="wizard-input-wrapper">
+                 <User size={18} className="input-icon" />
+                 <input type="text" placeholder="Your Name" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+               </div>
+               <div className="wizard-input-wrapper">
+                 <Mail size={18} className="input-icon" />
+                 <input type="email" placeholder="Your Email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+               </div>
+               <div className="wizard-input-wrapper">
+                 <Phone size={18} className="input-icon" />
+                 <input type="tel" placeholder="Phone Number" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+               </div>
+            </div>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="wizard-step-content">
+            <h3>How would you prefer to connect?</h3>
+            <p className="wizard-subtitle">Select your preferred communication method.</p>
+            <div className="wizard-options-list">
+              {[
+                { id: 'email', icon: <Mail size={22} color="#3b82f6" />, title: 'Email', desc: 'We will reply to your email' },
+                { id: 'whatsapp', icon: <FaWhatsapp size={22} color="#22c55e" />, title: 'WhatsApp', desc: 'We will message you on WhatsApp' },
+                { id: 'phone', icon: <Phone size={22} color="#94a3b8" />, title: 'Phone Call', desc: 'We will call you' }
+              ].map(opt => (
+                <div 
+                  key={opt.id} 
+                  className={`wizard-option double-line ${formData.contactMethod === opt.id ? 'selected' : ''}`}
+                  onClick={() => setFormData({...formData, contactMethod: opt.id})}
+                >
+                  <div className="opt-left">
+                    <span className="opt-icon">{opt.icon}</span>
+                    <div className="opt-text">
+                      <span className="opt-title">{opt.title}</span>
+                      <span className="opt-desc">{opt.desc}</span>
+                    </div>
+                  </div>
+                  <div className={`wizard-radio ${formData.contactMethod === opt.id ? 'checked' : ''}`}>
+                    {formData.contactMethod === opt.id && <Check size={12} strokeWidth={4} />}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      case 6:
+        return (
+          <div className="wizard-step-content success-step">
+            <div className="success-confetti">
+              <div className="success-icon-wrapper">
+                <Check size={48} color="#fff" strokeWidth={3} />
               </div>
             </div>
-
-            <div className="form-row" style={{ marginTop: '16px' }}>
-              <div className="form-group">
-                <label>📱 Phone Number</label>
-                <input type="tel" placeholder="+1 (555) 000-0000" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
-              </div>
-              <div className="form-group">
-                <label>🏢 Company Name</label>
-                <input type="text" placeholder="Your Company" value={formData.company} onChange={e => setFormData({...formData, company: e.target.value})} />
-              </div>
-            </div>
+            <h2>Message Sent!</h2>
+            <p>Thanks for reaching out. We've received your information and will get back to you soon.</p>
           </div>
         );
       default:
@@ -166,68 +242,44 @@ function LeadModal() {
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
-      <div className="modal-content glass">
-        <button className="modal-close" onClick={closeModal}><X size={24} /></button>
+      
+      <div className="modal-content wizard-modal">
+        <button className="modal-close" onClick={handleClose}><X size={20} color="#94a3b8" /></button>
         
-        {isSuccess ? (
-          <div className="modal-success">
-            <CheckCircle2 size={64} color="var(--primary-blue)" className="success-icon" />
-            <h2>✅ Thank You!</h2>
-            <p>We've received your enquiry.<br/>Our team will contact you within 24 hours.</p>
-            <div className="modal-actions-success">
-              <button className="btn-secondary" onClick={() => { setIsSuccess(false); setCurrentStep(1); closeModal(); }}>
-                Back to Home
+        {renderStepDots()}
+        
+        <div className="wizard-body">
+          {renderStepContent()}
+        </div>
+
+        {currentStep < 6 ? (
+          <div className="wizard-footer">
+            {currentStep > 1 ? (
+              <button className="wizard-btn-back" onClick={prevStep}>
+                <ArrowLeft size={16} /> Back
               </button>
-              <a href="#" className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-                <FaWhatsapp size={18} /> WhatsApp Us
-              </a>
-            </div>
+            ) : <div></div>}
+            
+            <button className={`wizard-btn-next ${isNextDisabled() ? 'disabled' : ''}`} onClick={nextStep} disabled={isNextDisabled()}>
+              {isSubmitting ? 'Sending...' : 'Next'} <ArrowRight size={16} />
+            </button>
           </div>
         ) : (
-          <div className="modal-form-container">
-            <div className="modal-header">
-              <h2>Let's Build Something Great 🚀</h2>
-              <div className="progress-bar-container">
-                <div className="progress-bar-fill" style={{ width: `${(currentStep / 4) * 100}%` }}></div>
-              </div>
-              <p className="step-indicator">Step {currentStep} of 4</p>
-            </div>
-            
-            <form onSubmit={handleSubmit} className="lead-form multi-step-form">
-              
-              <div className="step-wrapper">
-                {renderStepContent()}
-              </div>
-
-              <div className="modal-actions multi-step-actions">
-                {currentStep > 1 && (
-                  <button type="button" className="btn-secondary flex-btn" onClick={prevStep}>
-                    <ArrowLeft size={16} /> Back
-                  </button>
-                )}
-                
-                {currentStep < 4 ? (
-                  <button type="button" className="btn-primary flex-btn" onClick={nextStep} disabled={currentStep === 1 && !formData.service}>
-                    Next <FaArrowRight size={14} style={{ marginLeft: '6px' }} />
-                  </button>
-                ) : (
-                  <button type="submit" className="btn-primary flex-btn" disabled={isSubmitting}>
-                    <Send size={16} /> {isSubmitting ? 'Sending...' : 'Send Enquiry'}
-                  </button>
-                )}
-              </div>
-              
-              {currentStep === 1 && (
-                <div style={{ textAlign: 'center', marginTop: '16px' }}>
-                  <button type="button" className="text-link" onClick={handleScheduleCall} style={{ background: 'none', border: 'none', color: 'var(--accent-silver)', textDecoration: 'underline', cursor: 'pointer' }}>
-                    Or Schedule a Call directly <FaArrowRight size={12} style={{ marginLeft: '6px' }} />
-                  </button>
-                </div>
-              )}
-            </form>
+          <div className="wizard-footer single-btn">
+            <button className="wizard-btn-full" onClick={handleClose}>
+              Close
+            </button>
           </div>
         )}
       </div>
+
+      {/* Bottom Features outside modal */}
+      <div className="wizard-global-footer">
+        <div className="wg-feature"><ShieldCheck size={16} /> Your information is safe with us</div>
+        <div className="wg-feature"><Clock size={16} /> Usually reply within 24 hours</div>
+        <div className="wg-feature"><Headset size={16} /> We're here to help you succeed</div>
+      </div>
+
     </div>
   );
 }

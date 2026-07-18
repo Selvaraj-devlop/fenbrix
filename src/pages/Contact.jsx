@@ -26,7 +26,7 @@ function Contact() {
   };
 
   return (
-    <div className="contact-page-wrapper">
+    <div className="contact-page-wrapper page-animate">
       <div className="container contact-page-container">
         
         {/* Main Grid: Info + Form */}

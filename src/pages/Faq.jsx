@@ -75,7 +75,7 @@ function Faq() {
     : faqData.filter(faq => faq.category === activeCategory);
 
   return (
-    <div className="faq-page-wrapper">
+    <div className="faq-page-wrapper page-animate">
       <div className="container faq-container">
         
         {/* Header Section */}

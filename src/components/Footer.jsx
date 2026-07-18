@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Building2, Settings, BookOpen, Rocket,
   Phone, Mail, MapPin, ShieldCheck, Heart, ChevronRight
@@ -18,8 +18,23 @@ const DribbbleIcon = ({ size = 18 }) => (
 );
 
 function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
+  };
+
+  const handleHashLink = (e, hash) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleComingSoon = (e, name) => {
@@ -77,8 +92,8 @@ function Footer() {
             </div>
             <ul className="links-list">
               <li><Link to="/about" onClick={scrollToTop}>About Us <ChevronRight size={14} className="chevron" /></Link></li>
-              <li><Link to="/approach" onClick={scrollToTop}>Our Approach <ChevronRight size={14} className="chevron" /></Link></li>
-              <li><Link to="/why-us" onClick={scrollToTop}>Why Us <ChevronRight size={14} className="chevron" /></Link></li>
+              <li><a href="/#approach" onClick={(e) => handleHashLink(e, 'approach')}>Our Approach <ChevronRight size={14} className="chevron" /></a></li>
+              <li><a href="/#why-us" onClick={(e) => handleHashLink(e, 'why-us')}>Why Us <ChevronRight size={14} className="chevron" /></a></li>
               <li><Link to="/careers" onClick={scrollToTop}>Careers <ChevronRight size={14} className="chevron" /></Link></li>
               <li><Link to="" onClick={(e) => handleComingSoon(e, 'Blog')}>Blog <ChevronRight size={14} className="chevron" /></Link></li>
               <li><Link to="/contact" onClick={scrollToTop}>Contact Us <ChevronRight size={14} className="chevron" /></Link></li>

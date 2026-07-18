@@ -1,0 +1,79 @@
+/* ========================================================= */
+/*                   TOAST NOTIFICATION                      */
+/* ========================================================= */
+
+.glass-toast-wrapper {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 50px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-toast-wrapper.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.glass-toast {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-radius: 50px;
+  
+  /* Glassmorphism */
+  background: rgba(37, 99, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 99, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.toast-msg {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.toast-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Mode Overrides */
+:root[data-theme='light'] .glass-toast {
+  background: rgba(37, 99, 255, 0.1);
+  border-color: rgba(37, 99, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+:root[data-theme='light'] .toast-msg {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+:root[data-theme='light'] .toast-close {
+  color: var(--primary-blue);
+}
+:root[data-theme='light'] .toast-close:hover {
+  background: rgba(37, 99, 255, 0.1);
+}

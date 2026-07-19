@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowRight, Mail, Smile, Award, Headset, 
@@ -17,6 +17,8 @@ import { FaAws, FaSlack } from "react-icons/fa6";
 import { VscVscode } from "react-icons/vsc";
 import { useModal } from '../context/ModalContext';
 import homeRocketImg from '../assets/home-rocket.png';
+import heroDarkImg from '../assets/hero-dark.png';
+import heroLightImg from '../assets/hero-light.png';
 import whyChooseImg from '../assets/why-choose.png';
 import hero3dImg from '../assets/hero_3d.png';
 
@@ -56,12 +58,47 @@ function Home() {
     window.scrollTo(0, 0);
   }, []);
 
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const handleMouseMove = (e) => {
+    const { currentTarget, clientX, clientY } = e;
+    const rect = currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: clientX - rect.left,
+      y: clientY - rect.top,
+    });
+  };
+
+  const TITLE_PHRASES = ["Drive Growth", "Scale Faster", "Create Impact"];
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [fadeClass, setFadeClass] = useState("slide-in");
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setFadeClass("slide-out");
+      setTimeout(() => {
+        setTitleIndex((current) => (current + 1) % TITLE_PHRASES.length);
+        setFadeClass("slide-in");
+      }, 400); // Wait for rotateOut to finish
+    }, 3500);
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="home-page-new page-animate">
       
       {/* 1. HERO SECTION (Dark) */}
-      <section className="home-hero-section">
-        <div className="container home-hero-grid">
+      <section className="home-hero-section" onMouseMove={handleMouseMove} style={{ '--mouse-x': `${mousePos.x}px`, '--mouse-y': `${mousePos.y}px` }}>
+        
+        <div className="hero-bg-animations">
+          <div className="animated-grid"></div>
+          <div className="floating-particle particle-1"></div>
+          <div className="floating-particle particle-2"></div>
+          <div className="floating-particle particle-3"></div>
+          <div className="floating-particle particle-4"></div>
+          <div className="floating-particle particle-5"></div>
+        </div>
+
+        <div className="container home-hero-grid" data-aos="fade-up">
           {/* Left Content */}
           <div className="hh-left">
             <div className="hh-badge">
@@ -69,7 +106,10 @@ function Home() {
             </div>
             
             <h1 className="hh-title">
-              We Build Digital Solutions That <span className="highlight-blue">Drive Growth</span>
+              We Build Digital Solutions That <br className="mobile-break" />
+              <span className={`highlight-blue text-rotate-animation ${fadeClass}`}>
+                {TITLE_PHRASES[titleIndex]}
+              </span>
             </h1>
             
             <p className="hh-desc">
@@ -80,22 +120,6 @@ function Home() {
               <button className="btn-glass-blue" onClick={openModal}>
                 Start Your Project <ArrowRight size={16} style={{ marginLeft: '8px' }} />
               </button>
-            </div>
-          </div>
-          
-          {/* Right Content (Mockups) */}
-          <div className="hh-right">
-            <div className="hero-mockup-container" style={{ perspective: '1000px', display: 'flex', justifyContent: 'center' }}>
-              <img 
-                src={homeRocketImg} 
-                alt="Digital Experience" 
-                style={{ 
-                  width: '100%', 
-                  height: 'auto', 
-                  maxWidth: '550px',
-                  animation: 'float 6s ease-in-out infinite' 
-                }} 
-              />
             </div>
           </div>
         </div>
@@ -148,43 +172,43 @@ function Home() {
           
           <div className="services-6-grid">
             {/* Service 1 */}
-            <Link to="/services/web" className="svc-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="svc-card">
               <div className="svc-icon"><Code size={24} /></div>
               <h4>Web Development</h4>
               <p>Fast, secure, and scalable websites and web apps built for performance.</p>
-              <span className="svc-link">Learn More <ArrowRight size={14} /></span>
-            </Link>
+              <Link to="/services/web" className="svc-link">Learn More <ArrowRight size={14} /></Link>
+            </div>
             {/* Service 2 */}
-            <Link to="/services/mobile" className="svc-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="svc-card">
               <div className="svc-icon"><Smartphone size={24} /></div>
               <h4>Mobile App Development</h4>
               <p>User-friendly mobile apps for iOS & Android that people love to use.</p>
-              <span className="svc-link">Learn More <ArrowRight size={14} /></span>
-            </Link>
+              <Link to="/services/mobile" className="svc-link">Learn More <ArrowRight size={14} /></Link>
+            </div>
             {/* Service 3 */}
-            <Link to="/services/ui-ux" className="svc-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="svc-card">
               <div className="svc-icon"><PenTool size={24} /></div>
               <h4>UI/UX Design</h4>
               <p>Beautiful, intuitive interfaces that enhance user engagement and retention.</p>
-              <span className="svc-link">Learn More <ArrowRight size={14} /></span>
-            </Link>
+              <Link to="/services/ui-ux" className="svc-link">Learn More <ArrowRight size={14} /></Link>
+            </div>
             {/* Service 4 */}
-            <Link to="/services/ecommerce" className="svc-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="svc-card">
               <div className="svc-icon"><ShoppingCart size={24} /></div>
               <h4>E-Commerce Solutions</h4>
               <p>Custom online stores designed to maximize conversions and sales.</p>
-              <span className="svc-link">Learn More <ArrowRight size={14} /></span>
-            </Link>
+              <Link to="/services/ecommerce" className="svc-link">Learn More <ArrowRight size={14} /></Link>
+            </div>
             {/* Service 5 */}
-            <Link to="/services/marketing" className="svc-card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="svc-card">
               <div className="svc-icon"><Megaphone size={24} /></div>
               <h4>Digital Marketing</h4>
               <p>Data-driven SEO, SEM, and social media campaigns for rapid growth.</p>
-              <span className="svc-link">Learn More <ArrowRight size={14} /></span>
-            </Link>
+              <Link to="/services/marketing" className="svc-link">Learn More <ArrowRight size={14} /></Link>
+            </div>
             {/* Service 6 */}
             <div className="svc-card">
-              <div className="svc-icon"><Paintbrush size={24} color="#f59e0b" /></div>
+              <div className="svc-icon"><Paintbrush size={24} /></div>
               <h4>Graphic Design</h4>
               <p>Creative designs that communicate your brand and leave a lasting impact.</p>
               <Link to="/services/ui-ux" className="svc-link">Learn More <ArrowRight size={14} /></Link>

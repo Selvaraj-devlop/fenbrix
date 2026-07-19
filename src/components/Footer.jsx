@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Building2, Settings, BookOpen, Rocket,
-  Phone, Mail, MapPin, ShieldCheck, Heart, ChevronRight
+  Phone, Mail, MapPin, ShieldCheck, Heart, ChevronRight, ChevronDown
 } from 'lucide-react';
 import { IoIosPaperPlane } from "react-icons/io";
 import { FaArrowUp, FaInstagram, FaLinkedinIn, FaTwitter, FaDribbble } from "react-icons/fa";
@@ -20,6 +20,18 @@ const DribbbleIcon = ({ size = 18 }) => (
 function Footer() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [openSections, setOpenSections] = useState({
+    company: false,
+    services: false,
+    resources: false
+  });
+
+  const toggleSection = (section) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -53,8 +65,8 @@ function Footer() {
           {/* Brand Column */}
           <div className="footer-brand-col">
             <Link to="/" className="navbar-logo" onClick={scrollToTop} style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={logoDarkText} alt="Fenbrix Logo" className="logo-for-dark-bg" style={{ height: '110px', display: 'block' }} />
-              <img src={logoLightText} alt="Fenbrix Logo" className="logo-for-light-bg" style={{ height: '110px', display: 'block' }} />
+              <img src={logoDarkText} alt="Fenbrix Logo" className="logo-for-dark-bg" style={{ height: '80px', display: 'block' }} />
+              <img src={logoLightText} alt="Fenbrix Logo" className="logo-for-light-bg" style={{ height: '80px', display: 'block' }} />
             </Link>
             <p className="brand-desc">
               We help startups and freelancers turn ideas into powerful digital solutions with creativity and modern technology. By combining innovative design with robust engineering, we deliver custom platforms built to scale and drive real business growth.
@@ -81,9 +93,10 @@ function Footer() {
           </div>
 
           {/* Column 2: Company */}
-          <div className="footer-links-col with-divider">
-            <div className="col-header">
+          <div className={`footer-links-col with-divider ${openSections.company ? 'open' : ''}`}>
+            <div className="col-header" onClick={() => toggleSection('company')}>
               <h4 className="header-title">COMPANY</h4>
+              <ChevronDown size={18} className="mobile-toggle-icon" />
             </div>
             <div className="header-dots">
               <span className="dot line"></span>
@@ -101,9 +114,10 @@ function Footer() {
           </div>
 
           {/* Column 3: Services */}
-          <div className="footer-links-col with-divider">
-            <div className="col-header">
+          <div className={`footer-links-col with-divider ${openSections.services ? 'open' : ''}`}>
+            <div className="col-header" onClick={() => toggleSection('services')}>
               <h4 className="header-title">SERVICES</h4>
+              <ChevronDown size={18} className="mobile-toggle-icon" />
             </div>
             <div className="header-dots">
               <span className="dot line"></span>
@@ -121,9 +135,10 @@ function Footer() {
           </div>
 
           {/* Column 4: Resources */}
-          <div className="footer-links-col with-divider">
-            <div className="col-header">
+          <div className={`footer-links-col with-divider ${openSections.resources ? 'open' : ''}`}>
+            <div className="col-header" onClick={() => toggleSection('resources')}>
               <h4 className="header-title">RESOURCES</h4>
+              <ChevronDown size={18} className="mobile-toggle-icon" />
             </div>
             <div className="header-dots">
               <span className="dot line"></span>

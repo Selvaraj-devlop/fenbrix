@@ -23,7 +23,7 @@ function ThemeToggle() {
   return (
     <button 
       onClick={toggleTheme} 
-      className="btn-secondary" 
+      className="btn-secondary theme-toggle-btn" 
       style={{ width: '38px', height: '38px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       title={`Current Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}`}
     >

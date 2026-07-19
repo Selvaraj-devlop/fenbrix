@@ -100,7 +100,7 @@ export default function Portfolio() {
               <p>Data-driven strategies to grow your brand and reach the right audience.</p>
             </div>
             <div className="svc-card">
-              <div className="svc-icon"><Paintbrush size={24} color="#f59e0b" /></div>
+              <div className="svc-icon"><Paintbrush size={24} /></div>
               <h4>Graphic Design</h4>
               <p>Creative designs that communicate your brand and leave a lasting impact.</p>
             </div>

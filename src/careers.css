@@ -42,7 +42,8 @@
 
 .careers-hero-img-container img {
   width: 100%;
-  max-width: 600px;
+  max-width: 1000px;
+  height: 450px;
   border-radius: 20px;
   object-fit: cover;
 }

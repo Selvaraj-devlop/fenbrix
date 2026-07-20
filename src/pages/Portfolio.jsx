@@ -7,7 +7,7 @@ import {
   Smile, Lightbulb, Headset, ArrowRight
 } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
-
+import headsetImg from '../assets/portfolio-headset.png';
 export default function Portfolio() {
   const { openModal } = useModal();
   
@@ -18,27 +18,27 @@ export default function Portfolio() {
   return (
     <div className="srv-page page-animate">
       {/* 1. HERO SECTION */}
-      <section className="srv-hero" style={{paddingBottom: '80px'}}>
+      <section className="srv-hero" style={{paddingBottom: '20px'}}>
         <div className="container srv-hero-grid">
           <div className="srv-hero-left">
-            <div className="eyebrow-heading">OUR PORTFOLIO</div>
+            <div className="eyebrow-heading" style={{fontSize: '0.75rem'}}>OUR PORTFOLIO</div>
             
-            <h1 className="srv-hero-title">
+            <h1 className="srv-hero-title" style={{fontSize: '1.5rem'}}>
               Our Portfolio<br/>
               <span className="highlight-blue">In Progress.<br/>The Best Is Coming.</span>
             </h1>
             
             <div style={{width: '60px', height: '3px', background: 'var(--primary-blue)', margin: '24px 0'}}></div>
             
-            <p className="srv-hero-desc">
+            <p className="srv-hero-desc" style={{fontSize: '0.8rem'}}>
               We're a new team with big ideas and even bigger passion. We haven't completed any projects yet, but we're working hard to build powerful digital solutions for amazing clients.
             </p>
             
             <div style={{background: 'var(--card-bg)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '16px', maxWidth: '450px'}}>
                <div style={{color: 'var(--primary-blue)', flexShrink: 0}}><Rocket size={28} /></div>
                <div>
-                  <h4 style={{fontSize: '1rem', fontWeight: 'bold', marginBottom: '4px'}}>Great things take time.</h4>
-                  <p style={{fontSize: '0.85rem', color: 'var(--accent-silver)'}}>Our portfolio is under construction while we turn ideas into impactful digital experiences.</p>
+                  <h4 style={{fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '4px'}}>Great things take time.</h4>
+                  <p style={{fontSize: '0.7rem', color: 'var(--accent-silver)'}}>Our portfolio is under construction while we turn ideas into impactful digital experiences.</p>
                </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function Portfolio() {
       {/* 2. WHAT WE'RE WORKING ON (Services Grid) */}
       <section className="home-services-section" data-aos="fade-up">
         <div className="container">
-          <div style={{textAlign: 'center', marginBottom: '60px'}}>
+          <div style={{textAlign: 'center', marginBottom: '30px'}}>
              <h2 className="section-title">What We're <span className="highlight-blue">Working On</span></h2>
              <p className="section-subtitle" style={{margin: '0 auto', maxWidth: '600px'}}>We are building solutions across different domains to help businesses grow and succeed.</p>
           </div>
@@ -109,81 +109,95 @@ export default function Portfolio() {
       </section>
 
       {/* 3. STATS BAR */}
-      <div className="container" style={{ position: 'relative', zIndex: 10, margin: '40px auto 80px' }}>
-        <div className="home-stats-bar" style={{marginTop: 0}} data-aos="fade-up">
-          <div className="stat-item">
-            <div className="stat-icon-wrapper"><Rocket size={24} color="var(--primary-blue)" /></div>
-            <div className="stat-text">
-              <h3>0+</h3>
-              <p>Projects Completed</p>
-            </div>
+      <div className="container" style={{ position: 'relative', zIndex: 10, margin: '20px auto 40px' }}>
+        <div className="stats-right" data-aos="fade-up">
+          <div className="stat-card-light">
+            <div className="scl-icon"><Rocket size={28} /></div>
+            <h3>0+</h3>
+            <h5>Projects</h5>
+            <p>Completed</p>
           </div>
-          <div className="stat-divider"></div>
-          <div className="stat-item">
-            <div className="stat-icon-wrapper"><Smile size={24} color="var(--primary-blue)" /></div>
-            <div className="stat-text">
-              <h3>100%</h3>
-              <p>Passion & Dedication</p>
-            </div>
+          <div className="stat-card-light">
+            <div className="scl-icon"><Smile size={28} /></div>
+            <h3>100%</h3>
+            <h5>Passion</h5>
+            <p>& Dedication</p>
           </div>
-          <div className="stat-divider"></div>
-          <div className="stat-item">
-            <div className="stat-icon-wrapper"><Lightbulb size={24} color="var(--primary-blue)" /></div>
-            <div className="stat-text">
-              <h3>5+</h3>
-              <p>Services We Offer</p>
-            </div>
+          <div className="stat-card-light">
+            <div className="scl-icon"><Lightbulb size={28} /></div>
+            <h3>5+</h3>
+            <h5>Services</h5>
+            <p>We Offer</p>
           </div>
-          <div className="stat-divider"></div>
-          <div className="stat-item">
-            <div className="stat-icon-wrapper"><Headset size={24} color="var(--primary-blue)" /></div>
-            <div className="stat-text">
-              <h3>24/7</h3>
-              <p>Support Available</p>
-            </div>
+          <div className="stat-card-light">
+            <div className="scl-icon"><Headset size={28} /></div>
+            <h3>24/7</h3>
+            <h5>Support</h5>
+            <p>Available</p>
           </div>
         </div>
       </div>
 
       {/* 4. OUR APPROACH */}
-      <section className="home-approach-section" style={{background: 'transparent', padding: '40px 0 100px'}} data-aos="fade-up">
+      <section className="home-approach-section" style={{background: 'transparent', padding: '20px 0 40px'}} data-aos="fade-up">
         <div className="container">
-          <div style={{textAlign: 'center', marginBottom: '60px'}}>
+          <div style={{textAlign: 'center', marginBottom: '30px'}}>
             <h2 className="section-title">Our <span className="highlight-blue">Approach</span></h2>
           </div>
           
-          <div className="approach-timeline">
-            <div className="timeline-line"></div>
+          <div className="portfolio-process">
+            <div className="pp-step" data-aos="fade-up">
+              <div className="pp-num">01</div>
+              <div className="pp-icon-wrapper"><Search size={28} /></div>
+              <div className="pp-content">
+                <h4>Discover</h4>
+                <p>We understand your requirements and business goals.</p>
+              </div>
+            </div>
             
-            <div className="timeline-step">
-              <div className="ts-icon"><Search size={24} /></div>
-              <h4>Discover</h4>
-              <p>We understand your requirements and business goals.</p>
+            <div className="pp-step" data-aos="fade-up">
+              <div className="pp-num">02</div>
+              <div className="pp-icon-wrapper"><PenLine size={28} /></div>
+              <div className="pp-content">
+                <h4>Plan</h4>
+                <p>We plan the right strategy tailored to your needs.</p>
+              </div>
             </div>
-            <div className="timeline-step">
-              <div className="ts-icon"><PenLine size={24} /></div>
-              <h4>Plan</h4>
-              <p>We plan the right strategy tailored to your needs.</p>
+            
+            <div className="pp-step" data-aos="fade-up">
+              <div className="pp-num">03</div>
+              <div className="pp-icon-wrapper"><Layout size={28} /></div>
+              <div className="pp-content">
+                <h4>Design</h4>
+                <p>We craft stunning designs that align with your vision.</p>
+              </div>
             </div>
-            <div className="timeline-step">
-              <div className="ts-icon"><Layout size={24} /></div>
-              <h4>Design</h4>
-              <p>We craft stunning designs that align with your vision.</p>
+            
+            <div className="pp-step" data-aos="fade-up">
+              <div className="pp-num">04</div>
+              <div className="pp-icon-wrapper"><Code2 size={28} /></div>
+              <div className="pp-content">
+                <h4>Develop</h4>
+                <p>We build high-quality, scalable and secure solutions.</p>
+              </div>
             </div>
-            <div className="timeline-step">
-              <div className="ts-icon"><Code2 size={24} /></div>
-              <h4>Develop</h4>
-              <p>We build high-quality, scalable and secure solutions.</p>
+            
+            <div className="pp-step" data-aos="fade-up">
+              <div className="pp-num">05</div>
+              <div className="pp-icon-wrapper"><CheckCircle size={28} /></div>
+              <div className="pp-content">
+                <h4>Test</h4>
+                <p>We test thoroughly to ensure performance and security.</p>
+              </div>
             </div>
-            <div className="timeline-step">
-              <div className="ts-icon"><CheckCircle size={24} /></div>
-              <h4>Test</h4>
-              <p>We test thoroughly to ensure performance and security.</p>
-            </div>
-            <div className="timeline-step">
-              <div className="ts-icon"><Rocket size={24} /></div>
-              <h4>Launch</h4>
-              <p>We deploy and support your product for continuous growth.</p>
+            
+            <div className="pp-step" data-aos="fade-up">
+              <div className="pp-num">06</div>
+              <div className="pp-icon-wrapper"><Rocket size={28} /></div>
+              <div className="pp-content">
+                <h4>Launch</h4>
+                <p>We deploy and support your product for continuous growth.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -192,15 +206,17 @@ export default function Portfolio() {
       {/* 5. BOTTOM CTA */}
       <section className="home-cta-section" style={{background: 'transparent'}}>
         <div className="container">
-          <div className="hcta-box" style={{background: 'linear-gradient(135deg, #050505 0%, #0a0f1c 100%)'}}>
-            <div className="hcta-left" style={{flex: '0 0 20%'}}>
-               <div style={{width: '100px', height: '100px', border: '2px dashed rgba(37,99,255,0.4)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <Send size={48} color="var(--primary-blue)" style={{transform: 'rotate(-45deg)', marginLeft: '10px', marginTop: '-10px'}} />
+          <div className="hcta-box">
+            <div className="hcta-left" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+               <div style={{ width: '120px', height: '120px', background: 'linear-gradient(135deg, rgba(37,99,255,0.1), rgba(99,102,241,0.05))', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(37,99,255,0.3)', boxShadow: '0 4px 12px rgba(37,99,255,0.08)' }}>
+                  <img src={headsetImg} alt="Headset" style={{width: '65px', height: '65px', objectFit: 'contain'}} />
                </div>
             </div>
             <div className="hcta-right">
-              <h2 style={{fontSize: '2rem'}}>Have a project in mind?</h2>
-              <p>Let's create something amazing together.<br/>We're ready when you are!</p>
+              <div className="hcta-text">
+                <h2>Have a project in mind?</h2>
+                <p>Let's create something amazing together.<br/>We're ready when you are!</p>
+              </div>
               
               <div className="hcta-actions">
                 <button className="btn-primary" onClick={openModal}>

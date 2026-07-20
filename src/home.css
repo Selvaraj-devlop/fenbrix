@@ -533,7 +533,7 @@
 /* 3. OUR SERVICES (DARK) */
 .home-services-section {
   padding: 100px 0;
-  background: #050505;
+  background: transparent;
 }
 .section-header-split {
   display: flex;
@@ -890,10 +890,10 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(37, 99, 255, 0.25);
   border-radius: 12px;
-  padding: 30px 40px;
+  padding: 20px 30px;
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
@@ -916,14 +916,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 24px;
 }
 .hcta-text {
   flex: 1;
 }
 .hcta-right h2 {
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -933,8 +933,8 @@
   width: 32px;
   height: 2px;
   background: var(--primary-blue);
-  margin-top: 12px;
-  margin-bottom: 16px;
+  margin-top: 8px;
+  margin-bottom: 12px;
 }
 .hcta-right p {
   color: #e2e8f0;

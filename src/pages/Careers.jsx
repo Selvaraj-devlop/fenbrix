@@ -45,7 +45,7 @@ export default function Careers() {
 
       {/* Perks Section */}
       <section className="container" data-aos="fade-up">
-        <h2 className="careers-section-title">Why Work With Us?</h2>
+        <h2 className="careers-section-title">Why Work <span className="highlight-blue">With Us?</span></h2>
         
         <div className="career-perks-grid">
           <div className="perk-card">
@@ -83,7 +83,7 @@ export default function Careers() {
 
       {/* Openings Section */}
       <section className="openings-section container" data-aos="fade-up">
-        <h2 className="careers-section-title" style={{ marginBottom: '50px' }}>Current Openings</h2>
+        <h2 className="careers-section-title" style={{ marginBottom: '50px' }}>Current <span className="highlight-blue">Openings</span></h2>
         
         <div className="empty-state-card">
           <img src={chairImg} alt="Coming Soon" className="empty-state-img" />
@@ -120,19 +120,25 @@ export default function Careers() {
 
         </div>
 
-        <div className="career-cta-card">
-          <div className="cta-card-left">
-            <img src={envelopeImg} alt="Resume Envelope" className="cta-card-img" />
-            <div className="cta-card-text">
-              <h3>Don't See the Right Role?</h3>
-              <p>We're always interested in talented people. Share your resume with us and we'll reach out when the right opportunity comes up.</p>
+        <div className="hcta-box">
+          <div className="hcta-left">
+            <div className="hcta-image-wrapper">
+              <img src={envelopeImg} alt="Resume Envelope" className="hcta-full-image" />
             </div>
           </div>
-          <div className="cta-card-right">
-            <button className="btn-primary" onClick={() => window.location.href = 'mailto:careers@fenbrix.com'}>
-              <Upload size={18} /> Submit Your Resume
-            </button>
-            <a href="mailto:careers@fenbrix.com" className="cta-email">careers@fenbrix.com</a>
+          <div className="hcta-right">
+            <div className="hcta-text">
+              <h2>Don't See the <span className="highlight-blue">Right Role?</span></h2>
+              <p>We're always interested in talented people. Share your resume with us and we'll reach out when the right opportunity comes up.</p>
+            </div>
+            <div className="hcta-actions">
+              <button className="btn-primary" onClick={() => window.location.href = 'mailto:careers@fenbrix.com'}>
+                <Upload size={16} style={{marginRight: '8px'}}/> Submit Your Resume
+              </button>
+              <div className="hcta-email">
+                Or email us at <a href="mailto:careers@fenbrix.com">careers@fenbrix.com</a>
+              </div>
+            </div>
           </div>
         </div>
 

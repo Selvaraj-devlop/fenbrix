@@ -34,21 +34,23 @@ function App() {
     <ModalProvider>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/tools" element={<Tools />} />
-          <Route path="/faqs" element={<Faq />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/services/ecommerce" element={<Ecommerce />} />
-          <Route path="/services/marketing" element={<Marketing />} />
-          <Route path="/services/ui-ux" element={<UiUx />} />
-          <Route path="/services/mobile" element={<MobileApp />} />
-          <Route path="/services/graphic-design" element={<GraphicDesign />} />
-          <Route path="/services/web" element={<WebDev />} />
-        </Routes>
+        <main style={{ paddingBottom: '80px' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/faqs" element={<Faq />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/services/ecommerce" element={<Ecommerce />} />
+            <Route path="/services/marketing" element={<Marketing />} />
+            <Route path="/services/ui-ux" element={<UiUx />} />
+            <Route path="/services/mobile" element={<MobileApp />} />
+            <Route path="/services/graphic-design" element={<GraphicDesign />} />
+            <Route path="/services/web" element={<WebDev />} />
+          </Routes>
+        </main>
         <Footer />
         <LeadModal />
         <GlobalToast />

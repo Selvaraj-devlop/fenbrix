@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Rocket, FolderOpen, Image as ImageIcon,
@@ -10,10 +10,42 @@ import { useModal } from '../context/ModalContext';
 import headsetImg from '../assets/portfolio-headset.png';
 export default function Portfolio() {
   const { openModal } = useModal();
+  const [activeTab, setActiveTab] = useState(0);
   
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const portfolioTabs = [
+    {
+      color: '#ff5f56',
+      icon1: <FolderOpen size={80} color="#334155" strokeWidth={1} />,
+      icon2: <ImageIcon size={40} color="var(--primary-blue)" strokeWidth={1.5} />,
+      title: 'Masterpieces in the Making',
+      desc: 'Our digital canvas is currently being painted with extraordinary experiences.'
+    },
+    {
+      color: '#ffbd2e',
+      icon1: <Code2 size={80} color="#334155" strokeWidth={1} />,
+      icon2: <Smartphone size={40} color="var(--primary-blue)" strokeWidth={1.5} />,
+      title: 'Innovative Solutions',
+      desc: 'We craft powerful, scalable applications to solve complex problems and deliver seamless user experiences.'
+    },
+    {
+      color: '#27c93f',
+      icon1: <Rocket size={80} color="#334155" strokeWidth={1} />,
+      icon2: <Search size={40} color="var(--primary-blue)" strokeWidth={1.5} />,
+      title: 'Launching Soon',
+      desc: 'Stay tuned for the grand reveal of our finest projects. We are finalizing case studies that showcase our design brilliance and technical expertise.'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % portfolioTabs.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [portfolioTabs.length]);
 
   return (
     <div className="srv-page page-animate">
@@ -34,7 +66,7 @@ export default function Portfolio() {
               We're a new team with big ideas and even bigger passion. We haven't completed any projects yet, but we're working hard to build powerful digital solutions for amazing clients.
             </p>
             
-            <div style={{background: 'var(--card-bg)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '16px', maxWidth: '450px'}}>
+            <div style={{background: 'rgba(37, 99, 255, 0.12)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(37, 99, 255, 0.25)', borderRadius: '12px', padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '16px', maxWidth: '450px', boxShadow: '0 10px 40px rgba(0,0,0,0.1)'}}>
                <div style={{color: 'var(--primary-blue)', flexShrink: 0}}><Rocket size={28} /></div>
                <div>
                   <h4 style={{fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '4px'}}>Great things take time.</h4>
@@ -44,21 +76,31 @@ export default function Portfolio() {
           </div>
           
           <div className="srv-hero-right" style={{justifyContent: 'center'}}>
-             <div style={{width: '100%', maxWidth: '450px', background: 'var(--card-bg)', border: '1px solid var(--border-color)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.5)'}}>
-                <div style={{height: '32px', background: 'rgba(255,255,255,0.05)', borderBottom: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', padding: '0 16px', gap: '6px'}}>
-                   <div style={{width: '8px', height: '8px', borderRadius: '50%', background: 'var(--border-color)'}}></div>
-                   <div style={{width: '8px', height: '8px', borderRadius: '50%', background: 'var(--border-color)'}}></div>
-                   <div style={{width: '8px', height: '8px', borderRadius: '50%', background: 'var(--border-color)'}}></div>
+             <div className="portfolio-preview-box" style={{display: 'flex', flexDirection: 'column', background: 'rgba(37, 99, 255, 0.12)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(37, 99, 255, 0.25)', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.2)'}}>
+                <div style={{height: '32px', flexShrink: 0, background: 'rgba(37, 99, 255, 0.05)', borderBottom: '1px solid rgba(37, 99, 255, 0.25)', display: 'flex', alignItems: 'center', padding: '0 16px', gap: '8px'}}>
+                   {portfolioTabs.map((tab, idx) => (
+                      <div 
+                        key={idx}
+                        onClick={() => setActiveTab(idx)}
+                        style={{
+                           width: '12px', height: '12px', borderRadius: '50%', background: tab.color,
+                           cursor: 'pointer',
+                           opacity: activeTab === idx ? 1 : 0.4,
+                           transform: activeTab === idx ? 'scale(1.2)' : 'scale(1)',
+                           transition: 'all 0.3s ease'
+                        }}
+                      ></div>
+                   ))}
                 </div>
-                <div style={{padding: '60px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
+                <div style={{flex: 1, padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', transition: 'all 0.3s ease'}}>
                    <div style={{position: 'relative', marginBottom: '24px'}}>
-                      <FolderOpen size={80} color="#334155" strokeWidth={1} />
+                      {portfolioTabs[activeTab].icon1}
                       <div style={{position: 'absolute', top: '-10px', right: '-10px', background: 'var(--card-bg)', borderRadius: '8px', padding: '4px', transform: 'rotate(15deg)'}}>
-                         <ImageIcon size={40} color="var(--primary-blue)" strokeWidth={1.5} />
+                         {portfolioTabs[activeTab].icon2}
                       </div>
                    </div>
-                   <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '8px'}}>No Projects Yet</h3>
-                   <p style={{color: 'var(--accent-silver)', fontSize: '0.95rem'}}>But amazing work is on the way!</p>
+                   <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '8px'}}>{portfolioTabs[activeTab].title}</h3>
+                   <p style={{color: 'var(--accent-silver)', fontSize: '0.95rem'}}>{portfolioTabs[activeTab].desc}</p>
                 </div>
              </div>
           </div>
@@ -78,31 +120,37 @@ export default function Portfolio() {
               <div className="svc-icon"><Code size={24} /></div>
               <h4>Web Development</h4>
               <p>Fast, secure, and scalable websites and web applications.</p>
+              <Link to="/services/web" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
             <div className="svc-card">
               <div className="svc-icon"><Smartphone size={24} /></div>
               <h4>Mobile App Development</h4>
               <p>User-friendly mobile apps for iOS and Android platforms.</p>
+              <Link to="/services/mobile" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
             <div className="svc-card">
               <div className="svc-icon"><ShoppingCart size={24} /></div>
               <h4>E-Commerce Solutions</h4>
               <p>Powerful online stores that increase sales and simplify management.</p>
+              <Link to="/services/ecommerce" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
             <div className="svc-card">
               <div className="svc-icon"><PenTool size={24} /></div>
               <h4>UI/UX Design</h4>
               <p>Beautiful, intuitive designs that create amazing user experiences.</p>
+              <Link to="/services/ui-ux" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
             <div className="svc-card">
               <div className="svc-icon"><Megaphone size={24} /></div>
               <h4>Digital Marketing</h4>
               <p>Data-driven strategies to grow your brand and reach the right audience.</p>
+              <Link to="/services/marketing" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
             <div className="svc-card">
               <div className="svc-icon"><Paintbrush size={24} /></div>
               <h4>Graphic Design</h4>
               <p>Creative designs that communicate your brand and leave a lasting impact.</p>
+              <Link to="/services/graphic-design" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
           </div>
         </div>
@@ -214,7 +262,7 @@ export default function Portfolio() {
             </div>
             <div className="hcta-right">
               <div className="hcta-text">
-                <h2>Have a project in mind?</h2>
+                <h2>Have a project <span className="highlight-blue">in mind?</span></h2>
                 <p>Let's create something amazing together.<br/>We're ready when you are!</p>
               </div>
               

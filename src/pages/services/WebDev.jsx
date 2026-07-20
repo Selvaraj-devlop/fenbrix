@@ -10,6 +10,7 @@ import {
   SiNodedotjs, SiPhp, SiWordpress 
 } from 'react-icons/si';
 import { useModal } from '../../context/ModalContext';
+import homeRocketImg from '../../assets/home-rocket.png';
 
 export default function WebDev() {
   const { openModal } = useModal();
@@ -22,7 +23,7 @@ export default function WebDev() {
     <main className="srv-page page-animate">
       {/* 1. HERO SECTION */}
       <section className="srv-hero">
-        <div className="container srv-hero-grid">
+        <div className="container srv-hero-grid" data-aos="fade-up">
           <div className="srv-hero-left">
             <div className="eyebrow-heading">WEB DEVELOPMENT</div>
             
@@ -38,74 +39,81 @@ export default function WebDev() {
               <button className="btn-primary" onClick={openModal}>
                 Start Your Project <ArrowRight size={16} />
               </button>
-              <button className="btn-outline-blue">
-                View Our Work
-              </button>
             </div>
           </div>
           
           <div className="srv-hero-right">
-             <div className="hero-mockup-container" style={{transform: 'scale(0.85)'}}>
-              <div className="mockup-laptop">
-                <div className="ml-screen" style={{background: '#0a0f1c'}}>
-                  <div className="ml-header" style={{background: '#151e32'}}>
-                    <span className="ml-dot red"></span>
-                    <span className="ml-dot yellow"></span>
-                    <span className="ml-dot green"></span>
-                  </div>
-                  <div className="ml-body" style={{flexDirection: 'column', position: 'relative', overflow: 'hidden'}}>
-                     {/* Abstract Code UI */}
-                     <div style={{position: 'absolute', top: '10%', left: '5%', width: '60px', height: '60px', background: 'rgba(37,99,255,0.1)', border: '1px solid rgba(37,99,255,0.3)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563FF', fontWeight: 'bold', fontSize: '20px'}}>
-                        {`{...}`}
-                     </div>
-                     <div style={{position: 'absolute', top: '20%', right: '10%', width: '200px', height: '140px', background: '#1e293b', borderRadius: '12px', padding: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)'}}>
-                        <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '16px'}}>
-                           <div style={{color: '#fff', fontWeight: 'bold'}}>{`</>`}</div>
-                        </div>
-                        <div style={{width: '100%', height: '60px', background: '#2563FF', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px'}}>
-                           <div style={{width: '30px', height: '20px', background: 'rgba(255,255,255,0.3)', borderRadius: '4px'}}></div>
-                        </div>
-                        <div style={{display: 'flex', gap: '8px'}}>
-                           <div style={{flex: 1, height: '6px', background: '#334155', borderRadius: '3px'}}></div>
-                           <div style={{flex: 2, height: '6px', background: '#334155', borderRadius: '3px'}}></div>
-                        </div>
-                     </div>
-                     <div style={{position: 'absolute', bottom: '20%', left: '30%', width: '120px'}}>
-                        <div style={{height: '6px', background: '#334155', borderRadius: '3px', marginBottom: '8px', width: '100%'}}></div>
-                        <div style={{height: '6px', background: '#334155', borderRadius: '3px', marginBottom: '8px', width: '80%'}}></div>
-                        <div style={{height: '6px', background: '#334155', borderRadius: '3px', marginBottom: '8px', width: '60%'}}></div>
-                        <div style={{height: '6px', background: '#2563FF', borderRadius: '3px', marginBottom: '8px', width: '40%'}}></div>
-                     </div>
-                  </div>
-                </div>
-                <div className="ml-base" style={{background: '#151e32'}}>
-                  <div className="ml-trackpad" style={{background: '#0a0f1c'}}></div>
-                </div>
-              </div>
-            </div>
+             <div style={{position: 'relative', width: '100%', maxWidth: '480px', margin: '0 auto', height: '380px', marginBottom: '60px'}}>
+               
+               {/* Browser Window */}
+               <div className="float-up" style={{position: 'absolute', top: '0', right: '0', width: '320px', background: 'var(--card-bg)', borderRadius: '16px', border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', overflow: 'hidden', zIndex: 2}}>
+                 <div style={{display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 14px', borderBottom: '1px solid var(--border-color)'}}>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57'}}></span>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FFBD2E'}}></span>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#28C840'}}></span>
+                   <div style={{flex: 1, marginLeft: '8px', height: '22px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', display: 'flex', alignItems: 'center', paddingLeft: '10px', fontSize: '10px', color: 'var(--accent-silver)'}}>fenbrix.com</div>
+                 </div>
+                 <div style={{padding: '20px'}}>
+                   <div style={{width: '100%', height: '24px', background: 'linear-gradient(90deg, #2563FF, #6366f1)', borderRadius: '6px', marginBottom: '16px'}}></div>
+                   <div style={{display: 'flex', gap: '12px', marginBottom: '16px'}}>
+                     <div style={{flex: 1, height: '60px', background: 'rgba(37,99,255,0.08)', borderRadius: '8px', border: '1px solid rgba(37,99,255,0.15)'}}></div>
+                     <div style={{flex: 1, height: '60px', background: 'rgba(37,99,255,0.08)', borderRadius: '8px', border: '1px solid rgba(37,99,255,0.15)'}}></div>
+                   </div>
+                   <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '90%', marginBottom: '8px'}}></div>
+                   <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '70%', marginBottom: '8px'}}></div>
+                   <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '50%'}}></div>
+                 </div>
+               </div>
+
+               {/* Code Editor Card */}
+               <div className="float-down" style={{position: 'absolute', bottom: '0', left: '0', width: '280px', background: '#0d1117', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 50px rgba(0,0,0,0.4)', overflow: 'hidden', zIndex: 3}}>
+                 <div style={{display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.06)'}}>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57'}}></span>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FFBD2E'}}></span>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#28C840'}}></span>
+                   <span style={{marginLeft: '8px', fontSize: '11px', color: '#8b949e'}}>App.jsx</span>
+                 </div>
+                 <div style={{padding: '14px', fontFamily: 'monospace', fontSize: '12px', lineHeight: '1.8'}}>
+                   <div><span style={{color: '#ff7b72'}}>import</span> <span style={{color: '#79c0ff'}}>React</span> <span style={{color: '#ff7b72'}}>from</span> <span style={{color: '#a5d6ff'}}>'react'</span>;</div>
+                   <div style={{marginTop: '4px'}}><span style={{color: '#ff7b72'}}>const</span> <span style={{color: '#d2a8ff'}}>App</span> = () =&gt; {'{'}</div>
+                   <div style={{paddingLeft: '16px'}}><span style={{color: '#ff7b72'}}>return</span> (</div>
+                   <div style={{paddingLeft: '32px'}}><span style={{color: '#8b949e'}}>&lt;</span><span style={{color: '#7ee787'}}>div</span><span style={{color: '#8b949e'}}>&gt;</span></div>
+                   <div style={{paddingLeft: '48px'}}><span style={{color: '#a5d6ff'}}>Hello World</span></div>
+                   <div style={{paddingLeft: '32px'}}><span style={{color: '#8b949e'}}>&lt;/</span><span style={{color: '#7ee787'}}>div</span><span style={{color: '#8b949e'}}>&gt;</span></div>
+                   <div style={{paddingLeft: '16px'}}>);</div>
+                   <div>{'}'};</div>
+                 </div>
+               </div>
+
+               {/* Floating Badge */}
+               <div className="float-side" style={{position: 'absolute', top: '55%', right: '-10px', background: 'linear-gradient(135deg, #2563FF, #6366f1)', color: '#fff', padding: '10px 18px', borderRadius: '12px', fontSize: '12px', fontWeight: '700', boxShadow: '0 10px 30px rgba(37,99,255,0.4)', zIndex: 4, display: 'flex', alignItems: 'center', gap: '8px'}}>
+                 <Rocket size={16} /> Deploy Ready
+               </div>
+
+             </div>
           </div>
         </div>
         
         <div className="container">
-          <div className="srv-features-strip">
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Layout size={24} /></div>
-              <h4>Modern & Responsive</h4>
+          <div className="stats-right" data-aos="fade-up" style={{width: '100%'}}>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Layout size={28} /></div>
+              <h5>Modern & Responsive</h5>
               <p>Pixel-perfect across all devices.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Zap size={24} /></div>
-              <h4>High Performance</h4>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Zap size={28} /></div>
+              <h5>High Performance</h5>
               <p>Optimized for speed and performance.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><ShieldCheck size={24} /></div>
-              <h4>Secure & Scalable</h4>
+            <div className="stat-card-light">
+              <div className="scl-icon"><ShieldCheck size={28} /></div>
+              <h5>Secure & Scalable</h5>
               <p>Built with best practices and clean code.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Search size={24} /></div>
-              <h4>SEO Friendly</h4>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Search size={28} /></div>
+              <h5>SEO Friendly</h5>
               <p>Structured for better visibility and ranking.</p>
             </div>
           </div>
@@ -113,10 +121,10 @@ export default function WebDev() {
       </section>
 
       {/* 2. SERVICES GRID */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <div style={{textAlign: 'center', marginBottom: '48px'}}>
-             <h2 className="srv-section-title" style={{marginBottom: '16px'}}>What We Build</h2>
+             <h2 className="srv-section-title" style={{marginBottom: '16px'}}>What We <span className="highlight-blue">Build</span></h2>
              <p style={{color: 'var(--accent-silver)', maxWidth: '600px', margin: '0 auto'}}>
                 From business websites to complex web applications, we build tailored solutions that solve real problems and drive real results.
              </p>
@@ -153,13 +161,12 @@ export default function WebDev() {
       </section>
 
       {/* 3. PROCESS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Our Web Development <span className="highlight-blue">Process</span></h2>
           
-          <div className="srv-timeline">
+          <div className="srv-timeline" data-aos="fade-up">
             <div className="srv-timeline-line"></div>
-            
             <div className="srv-step">
               <div className="srv-step-icon"><MessageSquare size={32} /></div>
               <h4><span>01.</span> Requirement</h4>
@@ -189,64 +196,56 @@ export default function WebDev() {
         </div>
       </section>
 
-      {/* 4. TOOLS */}
-      <section className="srv-section alt-bg">
+      {/* 4. TOOLS - Marquee Style */}
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Technologies We <span className="highlight-blue">Use</span></h2>
           
-          <div className="srv-tools-grid">
-            <div className="srv-tool-logo">
-              <SiHtml5 size={48} color="#E34F26" />
-              <span>HTML5</span>
-            </div>
-            <div className="srv-tool-logo">
-              <Code size={48} color="#1572B6" />
-              <span>CSS3</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiJavascript size={48} color="#F7DF1E" />
-              <span>JavaScript</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiReact size={48} color="#61DAFB" />
-              <span>React</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiNextdotjs size={48} color="#000" style={{background: '#fff', borderRadius: '50%', padding: '2px'}} />
-              <span>Next.js</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiNodedotjs size={48} color="#339933" />
-              <span>Node.js</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiPhp size={48} color="#777BB4" />
-              <span>PHP</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiWordpress size={48} color="#21759B" />
-              <span>WordPress</span>
+          <div className="tech-marquee-wrapper">
+            <div className="tech-marquee">
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiHtml5 size={32} color="#E34F26" /><span>HTML5</span></div>
+                <div className="tech-card"><Code size={32} color="#1572B6" /><span>CSS3</span></div>
+                <div className="tech-card"><SiJavascript size={32} color="#F7DF1E" /><span>JavaScript</span></div>
+                <div className="tech-card"><SiReact size={32} color="#61DAFB" /><span>React</span></div>
+                <div className="tech-card"><SiNextdotjs size={32} color="#000" style={{background: '#fff', borderRadius: '50%', padding: '2px'}} /><span>Next.js</span></div>
+                <div className="tech-card"><SiNodedotjs size={32} color="#339933" /><span>Node.js</span></div>
+                <div className="tech-card"><SiPhp size={32} color="#777BB4" /><span>PHP</span></div>
+                <div className="tech-card"><SiWordpress size={32} color="#21759B" /><span>WordPress</span></div>
+              </div>
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiHtml5 size={32} color="#E34F26" /><span>HTML5</span></div>
+                <div className="tech-card"><Code size={32} color="#1572B6" /><span>CSS3</span></div>
+                <div className="tech-card"><SiJavascript size={32} color="#F7DF1E" /><span>JavaScript</span></div>
+                <div className="tech-card"><SiReact size={32} color="#61DAFB" /><span>React</span></div>
+                <div className="tech-card"><SiNextdotjs size={32} color="#000" style={{background: '#fff', borderRadius: '50%', padding: '2px'}} /><span>Next.js</span></div>
+                <div className="tech-card"><SiNodedotjs size={32} color="#339933" /><span>Node.js</span></div>
+                <div className="tech-card"><SiPhp size={32} color="#777BB4" /><span>PHP</span></div>
+                <div className="tech-card"><SiWordpress size={32} color="#21759B" /><span>WordPress</span></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 5. BOTTOM CTA */}
-      <section className="srv-section" style={{paddingBottom: '40px'}}>
+      <section className="srv-section" data-aos="fade-up" style={{paddingBottom: '40px'}}>
         <div className="container">
           <div className="hcta-box">
-             <div className="hcta-left" style={{flex: '0 0 25%'}}>
-               <div style={{width: '120px', height: '100px', background: '#1e293b', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.1)'}}>
-                  <Globe size={48} color="#2563FF" />
-               </div>
+            <div className="hcta-left">
+              <div className="hcta-image-wrapper">
+                <img src={homeRocketImg} alt="Have a project in mind" className="hcta-full-image" />
+              </div>
             </div>
             <div className="hcta-right">
-              <h2>Ready to Build Your <br/>Next <span className="highlight-blue">Web Project?</span></h2>
-              <p>Let's create a powerful web solution that drives growth for your business.</p>
+              <div className="hcta-text">
+                <h2>Ready to Build Your <br/>Next <span className="highlight-blue">Web Project?</span></h2>
+                <p>Let's create a powerful web solution that drives growth for your business.</p>
+              </div>
               
               <div className="hcta-actions">
                 <button className="btn-primary" onClick={openModal}>
-                  Let's Discuss Your Project <ArrowRight size={16} />
+                  Let's Discuss Your Project <ArrowRight size={16} style={{marginLeft: '8px'}}/>
                 </button>
                 <div className="hcta-email">
                   Or email us at <a href="mailto:hello@fenbrix.com">hello@fenbrix.com</a>
@@ -256,42 +255,7 @@ export default function WebDev() {
           </div>
         </div>
       </section>
-      
-      {/* 6. EXTRA HIGHLIGHTS STRIP */}
-      <section className="srv-section" style={{paddingTop: '0', paddingBottom: '80px'}}>
-         <div className="container">
-            <div className="srv-features-strip" style={{borderTop: 'none', paddingTop: 0}}>
-               <div className="srv-feature-item" style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <div className="srv-feature-icon" style={{width: '40px', height: '40px', border: 'none', background: 'transparent'}}><Clock size={24} /></div>
-                  <div>
-                     <h4 style={{fontSize: '0.9rem'}}>On-Time Delivery</h4>
-                     <p style={{fontSize: '0.75rem'}}>We value your time and deliver on schedule.</p>
-                  </div>
-               </div>
-               <div className="srv-feature-item" style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <div className="srv-feature-icon" style={{width: '40px', height: '40px', border: 'none', background: 'transparent'}}><MessageSquare size={24} /></div>
-                  <div>
-                     <h4 style={{fontSize: '0.9rem'}}>Transparent Communication</h4>
-                     <p style={{fontSize: '0.75rem'}}>You'll always know the status of your project.</p>
-                  </div>
-               </div>
-               <div className="srv-feature-item" style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <div className="srv-feature-icon" style={{width: '40px', height: '40px', border: 'none', background: 'transparent'}}><HeadphonesIcon size={24} /></div>
-                  <div>
-                     <h4 style={{fontSize: '0.9rem'}}>Dedicated Support</h4>
-                     <p style={{fontSize: '0.75rem'}}>We're here to support you even after delivery.</p>
-                  </div>
-               </div>
-               <div className="srv-feature-item" style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <div className="srv-feature-icon" style={{width: '40px', height: '40px', border: 'none', background: 'transparent'}}><Heart size={24} /></div>
-                  <div>
-                     <h4 style={{fontSize: '0.9rem'}}>Satisfaction Guaranteed</h4>
-                     <p style={{fontSize: '0.75rem'}}>Your satisfaction is our number one priority.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+      {/* (Extra Highlights Strip removed per user request) */}
 
     </main>
   );

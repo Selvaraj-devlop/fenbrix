@@ -6,7 +6,7 @@ import {
   Box, User, Clock, Phone,
   Eye, Compass, ArrowRight
 } from 'lucide-react';
-import { FaArrowRight } from "react-icons/fa6";
+// import { FaArrowRight } from "react-icons/fa6";
 import { useModal } from '../context/ModalContext';
 import aboutImg from '../assets/about-img.png';
 import homeRocketImg from '../assets/home-rocket.png';
@@ -105,7 +105,7 @@ function About() {
         <div className="container">
           <div className="section-header-center" data-aos="fade-up">
             <span className="section-badge">OUR PURPOSE</span>
-            <h2 className="section-title">Vision & Mission</h2>
+            <h2 className="section-title">Vision & <span className="highlight-blue">Mission</span></h2>
             <div className="title-underline"></div>
           </div>
 
@@ -149,7 +149,7 @@ function About() {
       <section className="about-stand-for">
         <div className="container">
           <div className="section-header-center" data-aos="fade-up">
-            <h2 className="section-title">What We Stand For</h2>
+            <h2 className="section-title">What We <span className="highlight-blue">Stand For</span></h2>
             <div className="title-underline"></div>
           </div>
           
@@ -182,7 +182,7 @@ function About() {
       <section className="about-why-choose">
         <div className="container">
           <div className="section-header-center" data-aos="fade-up">
-            <h2 className="section-title">Why Choose Fenbrix?</h2>
+            <h2 className="section-title">Why Choose <span className="highlight-blue">Fenbrix?</span></h2>
             <div className="title-underline"></div>
           </div>
           
@@ -230,7 +230,7 @@ function About() {
             </div>
             <div className="hcta-right">
               <div className="hcta-text">
-                <h2>Let's Build Something Great Together</h2>
+                <h2>Let's Build Something <span className="highlight-blue">Great Together</span></h2>
                 <p>Have an idea or project in mind? Let's turn it into reality. Let's collaborate to build a scalable digital solution that drives real growth for your business.</p>
               </div>
               

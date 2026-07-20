@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { SiFigma, SiSketch, SiMiro } from 'react-icons/si';
 import { useModal } from '../../context/ModalContext';
+import homeRocketImg from '../../assets/home-rocket.png';
 
 export default function UiUx() {
   const { openModal } = useModal();
@@ -19,7 +20,7 @@ export default function UiUx() {
     <main className="srv-page page-animate">
       {/* 1. HERO SECTION */}
       <section className="srv-hero">
-        <div className="container srv-hero-grid">
+        <div className="container srv-hero-grid" data-aos="fade-up">
           <div className="srv-hero-left">
             <div className="eyebrow-heading">UI / UX DESIGN</div>
             
@@ -35,72 +36,79 @@ export default function UiUx() {
               <button className="btn-primary" onClick={openModal}>
                 Start Your Project <ArrowRight size={16} />
               </button>
-              <button className="btn-outline-blue">
-                View Our Work
-              </button>
             </div>
           </div>
           
           <div className="srv-hero-right">
-             <div className="hero-mockup-container" style={{transform: 'scale(0.85)'}}>
-              <div className="mockup-laptop">
-                <div className="ml-screen" style={{background: '#fff'}}>
-                  <div className="ml-header">
-                    <span className="ml-dot red"></span>
-                    <span className="ml-dot yellow"></span>
-                    <span className="ml-dot green"></span>
-                  </div>
-                  <div className="ml-body" style={{flexDirection: 'column'}}>
-                     <div style={{display: 'flex', height: '100%'}}>
-                        <div style={{width: '60px', background: '#2563FF', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '20px', gap: '20px'}}>
-                           <div style={{width: '30px', height: '30px', background: '#fff', borderRadius: '4px'}}></div>
-                           <div style={{width: '30px', height: '30px', background: 'rgba(255,255,255,0.2)', borderRadius: '4px'}}></div>
-                           <div style={{width: '30px', height: '30px', background: 'rgba(255,255,255,0.2)', borderRadius: '4px'}}></div>
-                        </div>
-                        <div style={{flex: 1, padding: '20px', background: '#f8fafc'}}>
-                           <div style={{display: 'flex', gap: '20px', marginBottom: '20px'}}>
-                              <div style={{flex: 1, background: '#fff', padding: '16px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)'}}>
-                                 <div style={{fontSize: '10px', color: '#64748b'}}>Total Users</div>
-                                 <div style={{fontSize: '18px', fontWeight: 'bold', color: '#0f172a'}}>12,540</div>
-                              </div>
-                              <div style={{flex: 1, background: '#fff', padding: '16px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)'}}>
-                                 <div style={{fontSize: '10px', color: '#64748b'}}>Sessions</div>
-                                 <div style={{fontSize: '18px', fontWeight: 'bold', color: '#0f172a'}}>8,430</div>
-                              </div>
-                           </div>
-                           <div style={{height: '100px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)'}}></div>
-                        </div>
-                     </div>
-                  </div>
-                </div>
-                <div className="ml-base">
-                  <div className="ml-trackpad"></div>
-                </div>
-              </div>
-            </div>
+             <div style={{position: 'relative', width: '100%', maxWidth: '480px', margin: '0 auto', height: '380px', marginBottom: '60px'}}>
+               
+               {/* Design Preview Card */}
+               <div className="float-up" style={{position: 'absolute', top: '0', right: '0', width: '320px', background: 'var(--card-bg)', borderRadius: '16px', border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', overflow: 'hidden', zIndex: 2}}>
+                 <div style={{display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 14px', borderBottom: '1px solid var(--border-color)'}}>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57'}}></span>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FFBD2E'}}></span>
+                   <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#28C840'}}></span>
+                   <div style={{flex: 1, marginLeft: '8px', height: '22px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', display: 'flex', alignItems: 'center', paddingLeft: '10px', fontSize: '10px', color: 'var(--accent-silver)'}}>Design Preview</div>
+                 </div>
+                 <div style={{padding: '20px'}}>
+                   <div style={{display: 'flex', gap: '12px', marginBottom: '16px'}}>
+                     <div style={{flex: 1, height: '80px', background: 'rgba(37,99,255,0.08)', borderRadius: '12px', border: '1px solid rgba(37,99,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Users size={24} color="#2563FF" /></div>
+                     <div style={{flex: 1, height: '80px', background: 'rgba(99,102,241,0.08)', borderRadius: '12px', border: '1px solid rgba(99,102,241,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Layout size={24} color="#6366f1" /></div>
+                   </div>
+                   <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '90%', marginBottom: '8px'}}></div>
+                   <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '60%'}}></div>
+                 </div>
+               </div>
+
+               {/* Wireframe Card */}
+               <div className="float-down" style={{position: 'absolute', bottom: '0', left: '0', width: '260px', background: '#0d1117', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 50px rgba(0,0,0,0.4)', overflow: 'hidden', zIndex: 3, padding: '20px'}}>
+                 <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px'}}>
+                   <PenTool size={16} color="#2563FF" />
+                   <span style={{fontSize: '12px', color: '#8b949e', fontWeight: '600'}}>Wireframe</span>
+                 </div>
+                 <div style={{width: '100%', height: '20px', background: 'rgba(37,99,255,0.2)', borderRadius: '4px', marginBottom: '12px'}}></div>
+                 <div style={{display: 'flex', gap: '8px', marginBottom: '12px'}}>
+                   <div style={{width: '40px', height: '40px', background: 'rgba(255,255,255,0.06)', borderRadius: '50%'}}></div>
+                   <div style={{flex: 1}}>
+                     <div style={{height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', marginBottom: '6px', width: '80%'}}></div>
+                     <div style={{height: '6px', background: 'rgba(255,255,255,0.06)', borderRadius: '3px', width: '60%'}}></div>
+                   </div>
+                 </div>
+                 <div style={{display: 'flex', gap: '8px'}}>
+                   <div style={{flex: 1, height: '30px', background: 'rgba(37,99,255,0.15)', borderRadius: '6px'}}></div>
+                   <div style={{flex: 1, height: '30px', background: 'rgba(255,255,255,0.04)', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.08)'}}></div>
+                 </div>
+               </div>
+
+               {/* Floating Badge */}
+               <div className="float-side" style={{position: 'absolute', top: '55%', right: '-10px', background: 'linear-gradient(135deg, #2563FF, #6366f1)', color: '#fff', padding: '10px 18px', borderRadius: '12px', fontSize: '12px', fontWeight: '700', boxShadow: '0 10px 30px rgba(37,99,255,0.4)', zIndex: 4, display: 'flex', alignItems: 'center', gap: '8px'}}>
+                 <PenTool size={16} /> Pixel Perfect
+               </div>
+
+             </div>
           </div>
         </div>
         
         <div className="container">
-          <div className="srv-features-strip">
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Heart size={24} /></div>
-              <h4>User-Centered</h4>
+          <div className="stats-right" data-aos="fade-up" style={{width: '100%'}}>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Heart size={28} /></div>
+              <h5>User-Centered</h5>
               <p>We put your users first and design experiences they love.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Maximize size={24} /></div>
-              <h4>Pixel Perfect</h4>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Maximize size={28} /></div>
+              <h5>Pixel Perfect</h5>
               <p>Clean, modern and visually stunning designs.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Target size={24} /></div>
-              <h4>Conversion Focused</h4>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Target size={28} /></div>
+              <h5>Conversion Focused</h5>
               <p>We design with a purpose — to convert and retain.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Layers size={24} /></div>
-              <h4>Consistent & Scalable</h4>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Layers size={28} /></div>
+              <h5>Consistent & Scalable</h5>
               <p>We create scalable design systems for your brand.</p>
             </div>
           </div>
@@ -108,7 +116,7 @@ export default function UiUx() {
       </section>
 
       {/* 2. SERVICES GRID */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">What We <span className="highlight-blue">Design</span></h2>
           
@@ -148,11 +156,11 @@ export default function UiUx() {
       </section>
 
       {/* 3. PROCESS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Our UI/UX Design <span className="highlight-blue">Process</span></h2>
           
-          <div className="srv-timeline">
+          <div className="srv-timeline" data-aos="fade-up">
             <div className="srv-timeline-line"></div>
             
             <div className="srv-step">
@@ -185,7 +193,7 @@ export default function UiUx() {
       </section>
 
       {/* 4. WHY CHOOSE US */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <div className="srv-why-us">
             <div className="srv-why-box" style={{background: '#0f172a', borderColor: '#1e293b'}}>
@@ -225,59 +233,52 @@ export default function UiUx() {
       </section>
 
       {/* 5. TOOLS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Tools We <span className="highlight-blue">Use</span></h2>
           
-          <div className="srv-tools-grid">
-            <div className="srv-tool-logo">
-              <SiFigma size={48} color="#F24E1E" />
-              <span>Figma</span>
-            </div>
-            <div className="srv-tool-logo">
-              <Layout size={48} color="#FF61F6" />
-              <span>Adobe XD</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiSketch size={48} color="#F7B500" />
-              <span>Sketch</span>
-            </div>
-            <div className="srv-tool-logo">
-              <Image size={48} color="#31A8FF" />
-              <span>Photoshop</span>
-            </div>
-            <div className="srv-tool-logo">
-              <PenTool size={48} color="#FF9A00" />
-              <span>Illustrator</span>
-            </div>
-            <div className="srv-tool-logo">
-              <Monitor size={48} color="#FF3366" />
-              <span>InVision</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiMiro size={48} color="#050038" />
-              <span>Miro</span>
+          <div className="tech-marquee-wrapper">
+            <div className="tech-marquee">
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiFigma size={32} color="#F24E1E" /><span>Figma</span></div>
+                <div className="tech-card"><Layout size={32} color="#FF61F6" /><span>Adobe XD</span></div>
+                <div className="tech-card"><SiSketch size={32} color="#F7B500" /><span>Sketch</span></div>
+                <div className="tech-card"><Image size={32} color="#31A8FF" /><span>Photoshop</span></div>
+                <div className="tech-card"><PenTool size={32} color="#FF9A00" /><span>Illustrator</span></div>
+                <div className="tech-card"><Monitor size={32} color="#FF3366" /><span>InVision</span></div>
+                <div className="tech-card"><SiMiro size={32} color="#050038" /><span>Miro</span></div>
+              </div>
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiFigma size={32} color="#F24E1E" /><span>Figma</span></div>
+                <div className="tech-card"><Layout size={32} color="#FF61F6" /><span>Adobe XD</span></div>
+                <div className="tech-card"><SiSketch size={32} color="#F7B500" /><span>Sketch</span></div>
+                <div className="tech-card"><Image size={32} color="#31A8FF" /><span>Photoshop</span></div>
+                <div className="tech-card"><PenTool size={32} color="#FF9A00" /><span>Illustrator</span></div>
+                <div className="tech-card"><Monitor size={32} color="#FF3366" /><span>InVision</span></div>
+                <div className="tech-card"><SiMiro size={32} color="#050038" /><span>Miro</span></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 6. BOTTOM CTA */}
-      <section className="srv-section alt-bg" style={{paddingBottom: '100px'}}>
+      <section className="srv-section" data-aos="fade-up" style={{paddingBottom: '40px'}}>
         <div className="container">
           <div className="hcta-box">
-             <div className="hcta-left" style={{flex: '0 0 25%'}}>
-               <div style={{width: '120px', height: '100px', background: '#2563FF', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,255,0.4)'}}>
-                  <PenTool size={64} color="#fff" />
-               </div>
+            <div className="hcta-left">
+              <div className="hcta-image-wrapper">
+                <img src={homeRocketImg} alt="Have a project in mind" className="hcta-full-image" />
+              </div>
             </div>
             <div className="hcta-right">
-              <h2>Let's Design <span className="highlight-blue">Meaningful Experiences</span></h2>
-              <p>Great design is more than just looks — it's about creating experiences that users love and businesses grow with.</p>
-              
+              <div className="hcta-text">
+                <h2>Let's Design <span className="highlight-blue">Meaningful Experiences</span></h2>
+                <p>Great design is more than just looks — it's about creating experiences that users love and businesses grow with.</p>
+              </div>
               <div className="hcta-actions">
                 <button className="btn-primary" onClick={openModal}>
-                  Let's Discuss Your Project <ArrowRight size={16} />
+                  Let's Discuss Your Project <ArrowRight size={16} style={{marginLeft: '8px'}}/>
                 </button>
                 <div className="hcta-email">
                   Or email us at <a href="mailto:hello@fenbrix.com">hello@fenbrix.com</a>

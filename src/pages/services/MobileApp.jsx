@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { SiSwift, SiKotlin, SiFlutter, SiReact, SiFirebase, SiNodedotjs, SiMongodb, SiDart } from 'react-icons/si';
 import { useModal } from '../../context/ModalContext';
+import homeRocketImg from '../../assets/home-rocket.png';
 
 export default function MobileApp() {
   const { openModal } = useModal();
@@ -19,7 +20,7 @@ export default function MobileApp() {
     <main className="srv-page page-animate">
       {/* 1. HERO SECTION */}
       <section className="srv-hero">
-        <div className="container srv-hero-grid">
+        <div className="container srv-hero-grid" data-aos="fade-up">
           <div className="srv-hero-left">
             <div className="eyebrow-heading">MOBILE APP</div>
             
@@ -42,10 +43,10 @@ export default function MobileApp() {
           </div>
           
           <div className="srv-hero-right">
-             <div className="hero-mockup-container" style={{transform: 'scale(0.85)'}}>
+             <div style={{position: 'relative', width: '100%', maxWidth: '480px', margin: '0 auto', height: '380px', marginBottom: '60px'}}>
                 {/* CSS Mobile Phones Mockup */}
-                <div style={{display: 'flex', gap: '20px', alignItems: 'flex-end'}}>
-                   <div style={{width: '180px', height: '360px', background: '#111', borderRadius: '30px', border: '6px solid #333', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.5)'}}>
+                <div style={{display: 'flex', gap: '20px', alignItems: 'flex-end', justifyContent: 'center'}}>
+                   <div className="float-down" style={{width: '180px', height: '360px', background: '#111', borderRadius: '30px', border: '6px solid #333', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.5)'}}>
                       <div style={{position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '80px', height: '20px', background: '#333', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', zIndex: 10}}></div>
                       <div style={{padding: '30px 15px', height: '100%', background: '#0f172a'}}>
                          <div style={{color: '#fff', fontSize: '12px', marginBottom: '10px'}}>Dashboard</div>
@@ -61,7 +62,7 @@ export default function MobileApp() {
                       </div>
                    </div>
 
-                   <div style={{width: '200px', height: '400px', background: '#111', borderRadius: '30px', border: '6px solid #333', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', zIndex: 5}}>
+                   <div className="float-up" style={{width: '200px', height: '400px', background: '#111', borderRadius: '30px', border: '6px solid #333', overflow: 'hidden', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', zIndex: 5}}>
                       <div style={{position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '90px', height: '22px', background: '#333', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', zIndex: 10}}></div>
                       <div style={{padding: '40px 15px', height: '100%', background: '#050505'}}>
                          <div style={{color: '#fff', fontSize: '14px', marginBottom: '20px'}}>Statistics</div>
@@ -85,33 +86,33 @@ export default function MobileApp() {
         </div>
         
         <div className="container">
-          <div className="srv-features-strip">
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Smartphone size={24} /></div>
-              <h4>User-Centric Design</h4>
-              <p>Beautiful & intuitive user experience</p>
+          <div className="stats-right" data-aos="fade-up" style={{width: '100%'}}>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Smartphone size={28} /></div>
+              <h5>User-Centric Design</h5>
+              <p>Beautiful & intuitive user experience.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Zap size={24} /></div>
-              <h4>High Performance</h4>
-              <p>Optimized for speed and reliability</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Zap size={28} /></div>
+              <h5>High Performance</h5>
+              <p>Optimized for speed and reliability.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><ShieldCheck size={24} /></div>
-              <h4>Secure & Scalable</h4>
-              <p>Built with best practices and clean architecture</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><ShieldCheck size={28} /></div>
+              <h5>Secure & Scalable</h5>
+              <p>Built with best practices and clean architecture.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Clock size={24} /></div>
-              <h4>On-Time Delivery</h4>
-              <p>We value your time and deliver on schedule</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Clock size={28} /></div>
+              <h5>On-Time Delivery</h5>
+              <p>We value your time and deliver on schedule.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. SERVICES GRID */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">What We <span className="highlight-blue">Build</span></h2>
           
@@ -146,11 +147,11 @@ export default function MobileApp() {
       </section>
 
       {/* 3. PROCESS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Our App Development <span className="highlight-blue">Process</span></h2>
           
-          <div className="srv-timeline">
+          <div className="srv-timeline" data-aos="fade-up">
             <div className="srv-timeline-line"></div>
             
             <div className="srv-step">
@@ -183,7 +184,7 @@ export default function MobileApp() {
       </section>
 
       {/* 4. WHY CHOOSE US */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <div className="srv-why-us">
             <div className="srv-why-box" style={{background: '#0f172a', borderColor: '#1e293b'}}>
@@ -223,63 +224,54 @@ export default function MobileApp() {
       </section>
 
       {/* 5. TOOLS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Technologies We <span className="highlight-blue">Use</span></h2>
           
-          <div className="srv-tools-grid">
-            <div className="srv-tool-logo">
-              <SiSwift size={48} color="#F05138" />
-              <span>Swift</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiKotlin size={48} color="#7F52FF" />
-              <span>Kotlin</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiFlutter size={48} color="#02569B" />
-              <span>Flutter</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiReact size={48} color="#61DAFB" />
-              <span>React Native</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiFirebase size={48} color="#FFCA28" />
-              <span>Firebase</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiNodedotjs size={48} color="#339933" />
-              <span>Node.js</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiMongodb size={48} color="#47A248" />
-              <span>MongoDB</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiDart size={48} color="#0175C2" />
-              <span>Dart</span>
+          <div className="tech-marquee-wrapper">
+            <div className="tech-marquee">
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiSwift size={32} color="#F05138" /><span>Swift</span></div>
+                <div className="tech-card"><SiKotlin size={32} color="#7F52FF" /><span>Kotlin</span></div>
+                <div className="tech-card"><SiFlutter size={32} color="#02569B" /><span>Flutter</span></div>
+                <div className="tech-card"><SiReact size={32} color="#61DAFB" /><span>React Native</span></div>
+                <div className="tech-card"><SiFirebase size={32} color="#FFCA28" /><span>Firebase</span></div>
+                <div className="tech-card"><SiNodedotjs size={32} color="#339933" /><span>Node.js</span></div>
+                <div className="tech-card"><SiMongodb size={32} color="#47A248" /><span>MongoDB</span></div>
+                <div className="tech-card"><SiDart size={32} color="#0175C2" /><span>Dart</span></div>
+              </div>
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiSwift size={32} color="#F05138" /><span>Swift</span></div>
+                <div className="tech-card"><SiKotlin size={32} color="#7F52FF" /><span>Kotlin</span></div>
+                <div className="tech-card"><SiFlutter size={32} color="#02569B" /><span>Flutter</span></div>
+                <div className="tech-card"><SiReact size={32} color="#61DAFB" /><span>React Native</span></div>
+                <div className="tech-card"><SiFirebase size={32} color="#FFCA28" /><span>Firebase</span></div>
+                <div className="tech-card"><SiNodedotjs size={32} color="#339933" /><span>Node.js</span></div>
+                <div className="tech-card"><SiMongodb size={32} color="#47A248" /><span>MongoDB</span></div>
+                <div className="tech-card"><SiDart size={32} color="#0175C2" /><span>Dart</span></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 6. BOTTOM CTA */}
-      <section className="srv-section alt-bg" style={{paddingBottom: '100px'}}>
+      <section className="srv-section" data-aos="fade-up" style={{paddingBottom: '40px'}}>
         <div className="container">
           <div className="hcta-box">
-             <div className="hcta-left" style={{flex: '0 0 25%'}}>
-               <div style={{width: '120px', height: '100px', background: '#2563FF', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,255,0.4)'}}>
-                  <Smartphone size={64} color="#fff" />
-               </div>
+            <div className="hcta-left">
+              <div className="hcta-image-wrapper">
+                <img src={homeRocketImg} alt="Have a project in mind" className="hcta-full-image" />
+              </div>
             </div>
             <div className="hcta-right">
-              <h2>Have an App <span className="highlight-blue">Idea in Mind?</span></h2>
-              <p>Let's turn your idea into a powerful mobile app that delivers real value to your users and grows your business.</p>
-              
+              <div className="hcta-text">
+                <h2>Have an App <span className="highlight-blue">Idea in Mind?</span></h2>
+                <p>Let's turn your idea into a powerful mobile app that delivers real value to your users and grows your business.</p>
+              </div>
               <div className="hcta-actions">
                 <button className="btn-primary" onClick={openModal}>
-                  Let's Discuss Your Project <ArrowRight size={16} />
+                  Let's Discuss Your Project <ArrowRight size={16} style={{marginLeft: '8px'}}/>
                 </button>
                 <div className="hcta-email">
                   Or email us at <a href="mailto:hello@fenbrix.com">hello@fenbrix.com</a>

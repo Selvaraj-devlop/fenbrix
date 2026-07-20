@@ -8,6 +8,7 @@ import {
 import { SiShopify, SiWoocommerce } from 'react-icons/si';
 import { FaOpencart, FaCode } from 'react-icons/fa6';
 import { useModal } from '../../context/ModalContext';
+import homeRocketImg from '../../assets/home-rocket.png';
 
 export default function Ecommerce() {
   const { openModal } = useModal();
@@ -20,7 +21,7 @@ export default function Ecommerce() {
     <main className="srv-page page-animate">
       {/* 1. HERO SECTION */}
       <section className="srv-hero">
-        <div className="container srv-hero-grid">
+        <div className="container srv-hero-grid" data-aos="fade-up">
           <div className="srv-hero-left">
             <div className="eyebrow-heading">E-COMMERCE</div>
             
@@ -43,71 +44,84 @@ export default function Ecommerce() {
           </div>
           
           <div className="srv-hero-right">
-            {/* CSS Laptop Mockup for E-commerce */}
-            <div className="hero-mockup-container" style={{transform: 'scale(0.85)'}}>
-              <div className="mockup-laptop">
-                <div className="ml-screen" style={{background: '#fff'}}>
-                  <div className="ml-header">
-                    <span className="ml-dot red"></span>
-                    <span className="ml-dot yellow"></span>
-                    <span className="ml-dot green"></span>
-                  </div>
-                  <div className="ml-body" style={{background: '#f9fafb', flexDirection: 'column'}}>
-                    <div style={{padding: '12px', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between', color: '#333'}}>
-                      <span style={{fontWeight: 'bold', fontSize: '14px'}}>ShopKart</span>
-                      <div style={{display: 'flex', gap: '12px', fontSize: '10px'}}>
-                        <span>Home</span><span>Shop</span><span>Categories</span><span>Blog</span>
-                      </div>
-                    </div>
-                    <div style={{display: 'flex', padding: '20px', gap: '20px'}}>
-                      <div style={{flex: 1}}>
-                        <h3 style={{color: '#111', fontSize: '18px', marginBottom: '8px'}}>Discover Products<br/>That Inspire</h3>
-                        <p style={{color: '#666', fontSize: '10px', marginBottom: '16px'}}>Premium quality. Best prices. Great experience.</p>
-                        <button style={{background: '#2563FF', color: '#fff', border: 'none', padding: '6px 12px', borderRadius: '4px', fontSize: '10px'}}>Shop Now</button>
-                      </div>
-                      <div style={{width: '120px', height: '100px', background: '#e0e7ff', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        <Store size={40} color="#2563FF" />
-                      </div>
-                    </div>
-                  </div>
+             <div style={{position: 'relative', width: '100%', maxWidth: '480px', margin: '0 auto', height: '380px', marginBottom: '60px'}}>
+              
+              <div className="float-up" style={{position: 'absolute', top: '0', right: '0', width: '320px', background: 'var(--card-bg)', borderRadius: '16px', border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', overflow: 'hidden', zIndex: 2}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 14px', borderBottom: '1px solid var(--border-color)'}}>
+                  <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57'}}></span>
+                  <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FFBD2E'}}></span>
+                  <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#28C840'}}></span>
+                  <div style={{flex: 1, marginLeft: '8px', height: '22px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', display: 'flex', alignItems: 'center', paddingLeft: '10px', fontSize: '10px', color: 'var(--accent-silver)'}}>Store Admin</div>
                 </div>
-                <div className="ml-base">
-                  <div className="ml-trackpad"></div>
+                <div style={{padding: '20px'}}>
+                  <div style={{display: 'flex', gap: '12px', marginBottom: '16px'}}>
+                    <div style={{flex: 1, height: '80px', background: 'rgba(37,99,255,0.08)', borderRadius: '12px', border: '1px solid rgba(37,99,255,0.15)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                       <ShoppingCart size={24} color="#2563FF" style={{marginBottom: '4px'}}/>
+                       <span style={{fontSize: '12px', fontWeight: 'bold', color: '#fff'}}>142</span>
+                    </div>
+                    <div style={{flex: 1, height: '80px', background: 'rgba(40,200,64,0.08)', borderRadius: '12px', border: '1px solid rgba(40,200,64,0.15)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                       <CreditCard size={24} color="#28C840" style={{marginBottom: '4px'}}/>
+                       <span style={{fontSize: '12px', fontWeight: 'bold', color: '#fff'}}>$8.4K</span>
+                    </div>
+                  </div>
+                  <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '90%', marginBottom: '8px'}}></div>
+                  <div style={{height: '8px', background: 'var(--border-color)', borderRadius: '4px', width: '60%'}}></div>
                 </div>
               </div>
+
+              <div className="float-down" style={{position: 'absolute', bottom: '0', left: '0', width: '260px', background: '#0d1117', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 20px 50px rgba(0,0,0,0.4)', overflow: 'hidden', zIndex: 3, padding: '20px'}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+                  <div style={{width: '40px', height: '40px', background: 'rgba(255,255,255,0.1)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Package size={20} color="#fff" />
+                  </div>
+                  <div>
+                    <div style={{fontSize: '12px', color: '#fff', fontWeight: 'bold', marginBottom: '4px'}}>New Order #8942</div>
+                    <div style={{fontSize: '10px', color: '#8b949e'}}>Just now • $124.00</div>
+                  </div>
+                </div>
+                <div style={{display: 'flex', gap: '8px'}}>
+                  <div style={{flex: 1, height: '24px', background: 'rgba(37,99,255,0.15)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#79c0ff', fontWeight: 'bold'}}>Fulfill</div>
+                  <div style={{flex: 1, height: '24px', background: 'rgba(255,255,255,0.04)', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#8b949e'}}>Details</div>
+                </div>
+              </div>
+
+               <div className="float-side" style={{position: 'absolute', top: '55%', right: '-10px', background: 'linear-gradient(135deg, #2563FF, #6366f1)', color: '#fff', padding: '10px 18px', borderRadius: '12px', fontSize: '12px', fontWeight: '700', boxShadow: '0 10px 30px rgba(37,99,255,0.4)', zIndex: 4, display: 'flex', alignItems: 'center', gap: '8px'}}>
+                 <TrendingUp size={16} /> Sales Growth
+               </div>
+
             </div>
           </div>
         </div>
         
         {/* Features Strip */}
         <div className="container">
-          <div className="srv-features-strip">
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><ShieldCheck size={24} /></div>
-              <h4>Secure & Reliable</h4>
-              <p>Secure payments and data protection</p>
+          <div className="stats-right" data-aos="fade-up" style={{width: '100%'}}>
+            <div className="stat-card-light">
+              <div className="scl-icon"><ShieldCheck size={28} /></div>
+              <h5>Secure & Reliable</h5>
+              <p>Secure payments and data protection.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Zap size={24} /></div>
-              <h4>High Performance</h4>
-              <p>Optimized for speed and conversions</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Zap size={28} /></div>
+              <h5>High Performance</h5>
+              <p>Optimized for speed and conversions.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Smartphone size={24} /></div>
-              <h4>Mobile Friendly</h4>
-              <p>Seamless experience across all devices</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Smartphone size={28} /></div>
+              <h5>Mobile Friendly</h5>
+              <p>Seamless experience across all devices.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><TrendingUp size={24} /></div>
-              <h4>Growth Focused</h4>
-              <p>Built to scale with your business growth</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><TrendingUp size={28} /></div>
+              <h5>Growth Focused</h5>
+              <p>Built to scale with your business growth.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. WHAT WE OFFER */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">What We <span className="highlight-blue">Offer</span></h2>
           
@@ -147,11 +161,11 @@ export default function Ecommerce() {
       </section>
 
       {/* 3. PLATFORMS WE WORK WITH */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Platforms We <span className="highlight-blue">Work With</span></h2>
           
-          <div className="srv-tools-grid">
+          <div className="srv-tools-grid" data-aos="fade-up">
             <div className="srv-tool-logo">
               <SiShopify size={48} color="#95BF47" />
               <span>Shopify</span>
@@ -177,11 +191,11 @@ export default function Ecommerce() {
       </section>
 
       {/* 4. PROCESS TIMELINE */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Our E-Commerce Development <span className="highlight-blue">Process</span></h2>
           
-          <div className="srv-timeline">
+          <div className="srv-timeline" data-aos="fade-up">
             <div className="srv-timeline-line"></div>
             
             <div className="srv-step">
@@ -214,7 +228,7 @@ export default function Ecommerce() {
       </section>
 
       {/* 5. WHY CHOOSE US */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <div className="srv-why-us">
             <div className="srv-why-box">
@@ -256,21 +270,22 @@ export default function Ecommerce() {
       </section>
 
       {/* 6. BOTTOM CTA */}
-      <section className="srv-section alt-bg" style={{paddingBottom: '100px'}}>
+      <section className="srv-section" data-aos="fade-up" style={{paddingBottom: '40px'}}>
         <div className="container">
           <div className="hcta-box">
-            <div className="hcta-left" style={{flex: '0 0 25%'}}>
-               <div style={{width: '120px', height: '100px', background: '#2563FF', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,255,0.4)'}}>
-                  <ShoppingCart size={64} color="#fff" />
-               </div>
+            <div className="hcta-left">
+              <div className="hcta-image-wrapper">
+                <img src={homeRocketImg} alt="Have a project in mind" className="hcta-full-image" />
+              </div>
             </div>
             <div className="hcta-right">
-              <h2>Ready to Build Your <br/><span className="highlight-blue">Online Store?</span></h2>
-              <p>Let's build a powerful e-commerce solution that helps you attract more customers and increase sales.</p>
-              
+              <div className="hcta-text">
+                <h2>Ready to Build Your <span className="highlight-blue">Online Store?</span></h2>
+                <p>Let's build a powerful e-commerce solution that helps you attract more customers and increase sales.</p>
+              </div>
               <div className="hcta-actions">
                 <button className="btn-primary" onClick={openModal}>
-                  Let's Discuss Your Project <ArrowRight size={16} />
+                  Let's Discuss Your Project <ArrowRight size={16} style={{marginLeft: '8px'}}/>
                 </button>
                 <div className="hcta-email">
                   Or email us at <a href="mailto:hello@fenbrix.com">hello@fenbrix.com</a>

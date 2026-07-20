@@ -86,7 +86,7 @@ function Tools() {
     <div className="tools-page-wrapper">
       {/* 1. HERO SECTION */}
       <section className="tools-hero">
-        <div className="container tools-hero-container">
+        <div className="container tools-hero-container" data-aos="fade-up">
           <div className="th-left">
             <span className="section-badge">TOOLS WE USE</span>
             <h1 className="th-title">
@@ -129,10 +129,10 @@ function Tools() {
       </section>
 
       {/* 2. EXPLORE OUR TOOLBOX */}
-      <section className="toolbox-section">
+      <section className="toolbox-section" data-aos="fade-up">
         <div className="container">
           <div className="section-header-center">
-            <h2 className="section-title text-white">Explore Our Toolbox</h2>
+            <h2 className="section-title text-white">Explore Our <span className="highlight-blue">Toolbox</span></h2>
             <div className="title-underline"></div>
             <p className="section-subtitle">
               A carefully selected set of tools that help us build innovative, scalable and reliable solutions.

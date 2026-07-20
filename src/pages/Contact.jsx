@@ -30,7 +30,7 @@ function Contact() {
       <div className="container contact-page-container">
         
         {/* Main Grid: Info + Form */}
-        <div className="contact-grid">
+        <div className="contact-grid" data-aos="fade-up">
           
           {/* Left Column: Info */}
           <div className="contact-info-col">
@@ -120,7 +120,7 @@ function Contact() {
         </div>
 
         {/* Bottom Section: Other Ways to Connect */}
-        <div className="other-ways-section glass">
+        <div className="other-ways-section glass" data-aos="fade-up">
           <h3 className="other-ways-title">Other Ways to Connect</h3>
           
           <div className="other-ways-grid">

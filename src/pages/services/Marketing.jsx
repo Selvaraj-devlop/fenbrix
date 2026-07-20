@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowRight, Target, BarChart, Users, TrendingUp,
   Search, MessageCircle, MousePointerClick, Mail, FileText,
-  PieChart, CheckCircle
+  PieChart, CheckCircle, Rocket
 } from 'lucide-react';
 import { SiGoogleanalytics, SiGoogleads, SiSemrush, SiMailchimp, SiHubspot } from 'react-icons/si';
 import { FaMeta } from 'react-icons/fa6';
 import { useModal } from '../../context/ModalContext';
+import homeRocketImg from '../../assets/home-rocket.png';
 
 export default function Marketing() {
   const { openModal } = useModal();
@@ -20,7 +21,7 @@ export default function Marketing() {
     <main className="srv-page page-animate">
       {/* 1. HERO SECTION */}
       <section className="srv-hero">
-        <div className="container srv-hero-grid">
+        <div className="container srv-hero-grid" data-aos="fade-up">
           <div className="srv-hero-left">
             <div className="eyebrow-heading">DIGITAL MARKETING</div>
             
@@ -43,73 +44,71 @@ export default function Marketing() {
           </div>
           
           <div className="srv-hero-right">
-             <div className="hero-mockup-container" style={{transform: 'scale(0.85)'}}>
-              <div className="mockup-laptop">
-                <div className="ml-screen" style={{background: '#0f172a'}}>
-                  <div className="ml-header">
-                    <span className="ml-dot red"></span>
-                    <span className="ml-dot yellow"></span>
-                    <span className="ml-dot green"></span>
-                  </div>
-                  <div className="ml-body" style={{flexDirection: 'column'}}>
-                     <div style={{padding: '20px'}}>
-                        <h3 style={{color: '#fff', fontSize: '14px', marginBottom: '16px'}}>Marketing Performance</h3>
-                        <div style={{display: 'flex', gap: '12px'}}>
-                           <div style={{background: '#1e293b', padding: '12px', borderRadius: '8px', flex: 1}}>
-                              <div style={{fontSize: '10px', color: '#94a3b8'}}>Users</div>
-                              <div style={{fontSize: '18px', color: '#fff', fontWeight: 'bold'}}>24.8K</div>
-                              <div style={{fontSize: '10px', color: '#10b981'}}>+18.6%</div>
-                           </div>
-                           <div style={{background: '#1e293b', padding: '12px', borderRadius: '8px', flex: 1}}>
-                              <div style={{fontSize: '10px', color: '#94a3b8'}}>Conversions</div>
-                              <div style={{fontSize: '18px', color: '#fff', fontWeight: 'bold'}}>1.6K</div>
-                              <div style={{fontSize: '10px', color: '#10b981'}}>+24.3%</div>
-                           </div>
-                           <div style={{background: '#1e293b', padding: '12px', borderRadius: '8px', flex: 1}}>
-                              <div style={{fontSize: '10px', color: '#94a3b8'}}>ROI</div>
-                              <div style={{fontSize: '18px', color: '#fff', fontWeight: 'bold'}}>4.7x</div>
-                              <div style={{fontSize: '10px', color: '#10b981'}}>+32.1%</div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+             <div style={{position: 'relative', width: '100%', maxWidth: '480px', margin: '0 auto', height: '380px', marginBottom: '60px'}}>
+              <div className="float-up" style={{position: 'absolute', top: '0', right: '0', width: '360px', background: 'var(--card-bg)', borderRadius: '16px', border: '1px solid var(--border-color)', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', overflow: 'hidden', zIndex: 2}}>
+                <div style={{display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 14px', borderBottom: '1px solid var(--border-color)'}}>
+                  <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F57'}}></span>
+                  <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#FFBD2E'}}></span>
+                  <span style={{width: '10px', height: '10px', borderRadius: '50%', background: '#28C840'}}></span>
+                  <div style={{flex: 1, marginLeft: '8px', height: '22px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', display: 'flex', alignItems: 'center', paddingLeft: '10px', fontSize: '10px', color: 'var(--accent-silver)'}}>Marketing Performance</div>
                 </div>
-                <div className="ml-base">
-                  <div className="ml-trackpad"></div>
+                <div style={{padding: '20px'}}>
+                   <div style={{display: 'flex', gap: '12px'}}>
+                      <div style={{background: 'rgba(37,99,255,0.08)', border: '1px solid rgba(37,99,255,0.15)', padding: '12px', borderRadius: '8px', flex: 1}}>
+                         <div style={{fontSize: '10px', color: '#94a3b8'}}>Users</div>
+                         <div style={{fontSize: '18px', color: '#fff', fontWeight: 'bold'}}>24.8K</div>
+                         <div style={{fontSize: '10px', color: '#10b981'}}>+18.6%</div>
+                      </div>
+                      <div style={{background: 'rgba(37,99,255,0.08)', border: '1px solid rgba(37,99,255,0.15)', padding: '12px', borderRadius: '8px', flex: 1}}>
+                         <div style={{fontSize: '10px', color: '#94a3b8'}}>Conversions</div>
+                         <div style={{fontSize: '18px', color: '#fff', fontWeight: 'bold'}}>1.6K</div>
+                         <div style={{fontSize: '10px', color: '#10b981'}}>+24.3%</div>
+                      </div>
+                      <div style={{background: 'rgba(37,99,255,0.08)', border: '1px solid rgba(37,99,255,0.15)', padding: '12px', borderRadius: '8px', flex: 1}}>
+                         <div style={{fontSize: '10px', color: '#94a3b8'}}>ROI</div>
+                         <div style={{fontSize: '18px', color: '#fff', fontWeight: 'bold'}}>4.7x</div>
+                         <div style={{fontSize: '10px', color: '#10b981'}}>+32.1%</div>
+                      </div>
+                   </div>
                 </div>
               </div>
+
+              {/* Floating Badge */}
+               <div className="float-side" style={{position: 'absolute', top: '55%', right: '-10px', background: 'linear-gradient(135deg, #2563FF, #6366f1)', color: '#fff', padding: '10px 18px', borderRadius: '12px', fontSize: '12px', fontWeight: '700', boxShadow: '0 10px 30px rgba(37,99,255,0.4)', zIndex: 4, display: 'flex', alignItems: 'center', gap: '8px'}}>
+                 <TrendingUp size={16} /> Growth Focused
+               </div>
             </div>
           </div>
         </div>
         
         <div className="container">
-          <div className="srv-features-strip">
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Target size={24} /></div>
-              <h4>Result Driven</h4>
-              <p>Focused on metrics that matter</p>
+          <div className="stats-right" data-aos="fade-up" style={{width: '100%'}}>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Target size={28} /></div>
+              <h5>Result Driven</h5>
+              <p>Focused on metrics that matter.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><BarChart size={24} /></div>
-              <h4>Data Backed</h4>
-              <p>Strategies powered by insights and analytics</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><BarChart size={28} /></div>
+              <h5>Data Backed</h5>
+              <p>Strategies powered by insights and analytics.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><Users size={24} /></div>
-              <h4>Audience Focused</h4>
-              <p>Reaching the right people with the right message</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><Users size={28} /></div>
+              <h5>Audience Focused</h5>
+              <p>Reaching the right people with the right message.</p>
             </div>
-            <div className="srv-feature-item">
-              <div className="srv-feature-icon"><TrendingUp size={24} /></div>
-              <h4>Growth Oriented</h4>
-              <p>Continuous optimization for better results</p>
+            <div className="stat-card-light">
+              <div className="scl-icon"><TrendingUp size={28} /></div>
+              <h5>Growth Oriented</h5>
+              <p>Continuous optimization for better results.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 2. SERVICES GRID */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Our Digital Marketing <span className="highlight-blue">Services</span></h2>
           
@@ -149,11 +148,11 @@ export default function Marketing() {
       </section>
 
       {/* 3. PROCESS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Our Marketing <span className="highlight-blue">Process</span></h2>
           
-          <div className="srv-timeline">
+          <div className="srv-timeline" data-aos="fade-up">
             <div className="srv-timeline-line"></div>
             
             <div className="srv-step">
@@ -186,7 +185,7 @@ export default function Marketing() {
       </section>
 
       {/* 4. WHY CHOOSE US */}
-      <section className="srv-section alt-bg">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <div className="srv-why-us">
             <div className="srv-why-box" style={{background: '#0f172a', borderColor: '#1e293b'}}>
@@ -227,55 +226,50 @@ export default function Marketing() {
       </section>
 
       {/* 5. TOOLS */}
-      <section className="srv-section">
+      <section className="srv-section" data-aos="fade-up">
         <div className="container">
           <h2 className="srv-section-title">Tools We <span className="highlight-blue">Use</span></h2>
           
-          <div className="srv-tools-grid">
-            <div className="srv-tool-logo">
-              <SiGoogleanalytics size={48} color="#F9AB00" />
-              <span>Google Analytics</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiGoogleads size={48} color="#4285F4" />
-              <span>Google Ads</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiSemrush size={48} color="#FF642D" />
-              <span>SEMRush</span>
-            </div>
-            <div className="srv-tool-logo">
-              <FaMeta size={48} color="#0668E1" />
-              <span>Meta Business Suite</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiMailchimp size={48} color="#FFE01B" />
-              <span>Mailchimp</span>
-            </div>
-            <div className="srv-tool-logo">
-              <SiHubspot size={48} color="#FF7A59" />
-              <span>HubSpot</span>
+          <div className="tech-marquee-wrapper">
+            <div className="tech-marquee">
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiGoogleanalytics size={32} color="#F9AB00" /><span>Google Analytics</span></div>
+                <div className="tech-card"><SiGoogleads size={32} color="#4285F4" /><span>Google Ads</span></div>
+                <div className="tech-card"><SiSemrush size={32} color="#FF642D" /><span>SEMRush</span></div>
+                <div className="tech-card"><FaMeta size={32} color="#0668E1" /><span>Meta</span></div>
+                <div className="tech-card"><SiMailchimp size={32} color="#FFE01B" /><span>Mailchimp</span></div>
+                <div className="tech-card"><SiHubspot size={32} color="#FF7A59" /><span>HubSpot</span></div>
+              </div>
+              <div className="tech-marquee-content">
+                <div className="tech-card"><SiGoogleanalytics size={32} color="#F9AB00" /><span>Google Analytics</span></div>
+                <div className="tech-card"><SiGoogleads size={32} color="#4285F4" /><span>Google Ads</span></div>
+                <div className="tech-card"><SiSemrush size={32} color="#FF642D" /><span>SEMRush</span></div>
+                <div className="tech-card"><FaMeta size={32} color="#0668E1" /><span>Meta</span></div>
+                <div className="tech-card"><SiMailchimp size={32} color="#FFE01B" /><span>Mailchimp</span></div>
+                <div className="tech-card"><SiHubspot size={32} color="#FF7A59" /><span>HubSpot</span></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* 6. BOTTOM CTA */}
-      <section className="srv-section alt-bg" style={{paddingBottom: '100px'}}>
+      <section className="srv-section" data-aos="fade-up" style={{paddingBottom: '40px'}}>
         <div className="container">
           <div className="hcta-box">
-             <div className="hcta-left" style={{flex: '0 0 25%'}}>
-               <div style={{width: '120px', height: '100px', background: '#2563FF', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 25px rgba(37,99,255,0.4)'}}>
-                  <BarChart size={64} color="#fff" />
-               </div>
+            <div className="hcta-left">
+              <div className="hcta-image-wrapper">
+                <img src={homeRocketImg} alt="Have a project in mind" className="hcta-full-image" />
+              </div>
             </div>
             <div className="hcta-right">
-              <h2>Ready to <span className="highlight-blue">Grow Your Business?</span></h2>
-              <p>Let's build a powerful marketing strategy that brings more traffic, leads, and sales to your business.</p>
-              
+              <div className="hcta-text">
+                <h2>Ready to <span className="highlight-blue">Grow Your Business?</span></h2>
+                <p>Let's build a powerful marketing strategy that brings more traffic, leads, and sales to your business.</p>
+              </div>
               <div className="hcta-actions">
                 <button className="btn-primary" onClick={openModal}>
-                  Let's Discuss Your Project <ArrowRight size={16} />
+                  Let's Discuss Your Project <ArrowRight size={16} style={{marginLeft: '8px'}}/>
                 </button>
                 <div className="hcta-email">
                   Or email us at <a href="mailto:hello@fenbrix.com">hello@fenbrix.com</a>

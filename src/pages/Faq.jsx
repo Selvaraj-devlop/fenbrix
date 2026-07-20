@@ -76,7 +76,7 @@ function Faq() {
 
   return (
     <div className="faq-page-wrapper page-animate">
-      <div className="container faq-container">
+      <div className="container faq-container" data-aos="fade-up">
         
         {/* Header Section */}
         <div className="faq-header-grid">

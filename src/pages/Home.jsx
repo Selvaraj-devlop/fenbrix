@@ -211,7 +211,7 @@ function Home() {
               <div className="svc-icon"><Paintbrush size={24} /></div>
               <h4>Graphic Design</h4>
               <p>Creative designs that communicate your brand and leave a lasting impact.</p>
-              <Link to="/services/ui-ux" className="svc-link">Learn More <ArrowRight size={14} /></Link>
+              <Link to="/services/graphic-design" className="svc-link">Learn More <ArrowRight size={14} /></Link>
             </div>
           </div>
         </div>
@@ -418,7 +418,7 @@ function Home() {
             </div>
             <div className="hcta-right">
               <div className="hcta-text">
-                <h2>Let's start something great!</h2>
+                <h2>Let's start something <span className="highlight-blue">great!</span></h2>
                 <p>Drop us a message, we reply fast. Let's collaborate to build a scalable digital solution that drives real growth for your business.</p>
               </div>
               
